@@ -23,3 +23,6 @@ firebase-debug.log*
 
 # environment variables file
 .env
+
+# firebase
+.firebase

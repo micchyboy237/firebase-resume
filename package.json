@@ -21,8 +21,8 @@
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "develop": "vercel dev --yes",
-    "setup": "vercel env pull"
+    "deploy": "firebase deploy --only hosting",
+    "clean": "rm -rf .firebase"
   },
   "eslintConfig": {
     "extends": [
