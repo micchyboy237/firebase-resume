@@ -1,0 +1,217 @@
+{
+  "main": {
+    "name": "Jethro Estrada",
+    "description": "I'm a Full Stack Software Developer based in the Philippines.\nI use React and React Native to develop web and mobile apps.",
+    "contactmessage": "Here is where you should write your message to readers to have them get in contact with you.",
+    "email": "jethroestrada237@gmail.com",
+    "phone": "+639511148386",
+    "github": "https://github.com/nordicgiant2/react-nice-resume",
+    "project": "https://github.com/nordicgiant2/react-nice-resume",
+    "address": {
+      "street1": "#5 Aurora Pijuan St.",
+      "street2": "BF Resort Village",
+      "city": "Las Piñas City",
+      "state": "Metro Manila",
+      "country": "Philippines",
+      "zip": "1740",
+      "maplink": "https://www.google.com/maps/place/Las+Pi%C3%B1as,+Metro+Manila/@14.4396056,120.9233471,13z/data=!3m1!4b1!4m6!3m5!1s0x3397ce0835972b6f:0xff33295d281774b!8m2!3d14.444546!4d120.9938736!16zL20vMDE1bGxs"
+    },
+    "website": "http://www.timbakerdev.com",
+    "resumedownload": "/files/resume.pdf",
+    "social": [
+      {
+        "name": "facebook",
+        "url": "https://github.com/nordicgiant2/react-nice-resume",
+        "className": "fa fa-facebook"
+      },
+      {
+        "name": "twitter",
+        "url": "http://twitter.com",
+        "className": "fa fa-twitter"
+      },
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/tim-baker-8420009a/",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "instagram",
+        "url": "http://instagram.com/tbaker_x",
+        "className": "fa fa-instagram"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/nordicgiant2/react-nice-resume",
+        "className": "fa fa-github"
+      }
+    ]
+  },
+  "aboutme": {
+    "image": "profilepic.jpeg",
+    "bio": "10+ years experience in software development, with a track record of success in delivering client requirements and deploying to App Store and Play Store.",
+    "location": "Metro Manila, Philippines",
+    "nationality": "Filipino",
+    "birthday": "12-01-1990",
+    "languages": "Filipino, English",
+    "school": "De La Salle University",
+    "company": "Macanta"
+  },
+  "resume": {
+    "education": [
+      {
+        "school": "De La Salle University - Manila",
+        "degree": "Bachelor of Science in Computer Engineering",
+        "graduated": "2012"
+      },
+      {
+        "school": "Elizabeth Seton School",
+        "degree": "High School",
+        "graduated": "2007"
+      }
+    ],
+    "work": [
+      {
+        "company": "Awesome Design Studio",
+        "title": "Senior UX God ",
+        "years": "March 2018 - Present",
+        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+      },
+      {
+        "company": "Super Cool Studio",
+        "title": "Junior bug fixer",
+        "years": "March 2017 - February 2018",
+        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+      }
+    ],
+    "skills": [
+      {
+        "category": "Front End",
+        "items": [
+          {
+            "name": "React",
+            "level": 95
+          },
+          {
+            "name": "React Native",
+            "level": 90
+          },
+          {
+            "name": "GraphQL",
+            "level": 85
+          },
+          {
+            "name": "Redux",
+            "level": 80
+          },
+
+          {
+            "name": "Vanilla JS / CSS",
+            "level": 80
+          }
+        ]
+      },
+      {
+        "category": "Back End",
+        "items": [
+          {
+            "name": "NodeJS",
+            "level": 85
+          },
+          {
+            "name": "MongoDB",
+            "level": 75
+          },
+          {
+            "name": "Firebase",
+            "level": 75
+          },
+          {
+            "name": "AWS",
+            "level": 60
+          },
+          {
+            "name": "PostgreSQL",
+            "level": 50
+          }
+        ]
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "Macanta CRM",
+        "descrition": "My Travel Blog for my post-university travels",
+        "image": "macanta.png",
+        "url": "https://crm.salesferry.com",
+        "apps": [
+          {
+            "type": "ios",
+            "title": "Macanta",
+            "url": "https://apps.apple.com/us/app/macanta/id1526782461"
+          },
+          {
+            "type": "android",
+            "title": "Macanta",
+            "url": "https://play.google.com/store/apps/details?id=com.macantaapp&hl=en&gl=US&pli=1"
+          },
+          {
+            "type": "web",
+            "title": "Macanta",
+            "url": "https://crm.salesferry.com"
+          }
+        ],
+        "links": [
+          "https://tk217.salesferry.com",
+          "https://jz055.salesferry.com",
+          "https://oz462.salesferry.com",
+          "https://ni357.salesferry.com",
+          "https://vt676.salesferry.com",
+          "https://ia787.salesferry.com",
+          "https://kb433.salesferry.com",
+          "https://dm561.salesferry.com",
+          "https://jules-procure.salesferry.com",
+          "https://ew494.salesferry.com",
+          "https://crm.salesferry.com"
+        ]
+      },
+      {
+        "title": "Graduapp",
+        "descrition": "(MVP Only) A React and Meteor based chat University project.",
+        "image": "graduapp.png",
+        "url": "https://apps.apple.com/us/app/graduapp/id1576401944",
+        "apps": [
+          {
+            "type": "ios",
+            "title": "Graduapp",
+            "url": "https://apps.apple.com/us/app/graduapp/id1576401944"
+          },
+          {
+            "type": "web",
+            "title": "Graduapp Admin",
+            "url": "http://3.134.223.19"
+          }
+        ]
+      },
+      {
+        "title": "Digital Cities PH",
+        "descrition": "A React based resume website template",
+        "image": "digitalcitiesph.png",
+        "url": "https://www.digitalcitiesph.com"
+      },
+      {
+        "title": "EZ Myoma",
+        "descrition": "(MVP Only) A React and Meteor based chat University project.",
+        "image": "ezmyoma.png",
+        "url": "https://play.google.com/store/apps/details?id=com.ezmyoma&hl=en&gl=US",
+        "apps": [
+          {
+            "type": "android",
+            "title": "EZ Myoma",
+            "url": "https://play.google.com/store/apps/details?id=com.ezmyoma&hl=en&gl=US"
+          }
+        ]
+      }
+    ]
+  }
+}
