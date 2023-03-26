@@ -792,9 +792,10 @@ ul#nav li.current a {
 /* ------------------------------------------------------------------ */
 
 #contact {
+  height: 780px;
   background: #1b1d1e;
   padding-top: 96px;
-  padding-bottom: 102px;
+  padding-bottom: 80px;
   color: #636363;
 }
 #contact .section-head {
