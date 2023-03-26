@@ -41,11 +41,10 @@ const logVisit = (path = '/', title = 'Website Visit') => {
   });
 };
 
-const logView = (path = '/', title = 'View') => {
-  logSend({
-    hitType: 'screenview',
-    page: path,
-    title
+const logView = (path = '/', title) => {
+  logEvent({
+    category: 'View Info',
+    action: title
   });
 };
 
