@@ -1,70 +1,99 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Fade, Slide } from 'react-reveal';
 import firebaseAnalytics from '../firebaseAnalytics';
+import useLazyFetch from '../hooks/useLazyFetch';
 
-class Contact extends Component {
-  handleContactEmail() {
+const Contact = ({ data }) => {
+  const [inputs, setInputs] = useState({});
+
+  const [callFetch, fetchState] = useLazyFetch();
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+
+  const sendMessage = async () => {
+    const { name, email, message } = inputs;
+
+    const host =
+      process.env.API_URL ||
+      'https://2702-2001-4450-49b6-1b00-c8b4-6c0c-70dd-6c59.ap.ngrok.io';
+
+    callFetch(
+      `${host}/v1/chat/sendMessage?name=${name}&email=${email}&message=${message}`
+    );
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    sendMessage();
+  };
+
+  const handleContactEmail = () => {
     firebaseAnalytics.logClick('Contact Email');
-  }
+  };
 
-  render() {
-    if (!this.props.data) return null;
+  if (!data) return null;
 
-    const city = this.props.data.address.city;
-    const state = this.props.data.address.state;
-    const country = this.props.data.address.country;
-    const maplink = this.props.data.address.maplink;
-    const phone = this.props.data.phone;
-    const email = this.props.data.email;
+  const city = data.address.city;
+  const state = data.address.state;
+  const country = data.address.country;
+  const maplink = data.address.maplink;
+  const phone = data.phone;
+  const email = data.email;
 
-    return (
-      <section id="contact">
-        <Fade bottom duration={1000}>
-          <div className="row section-head">
-            <div className="twelve columns header-col">
-              <h1>
-                <span>Get In Touch</span>
-              </h1>
-            </div>
+  return (
+    <section id="contact">
+      <Fade bottom duration={1000}>
+        <div className="row section-head">
+          <div className="twelve columns header-col">
+            <h1>
+              <span>Get In Touch</span>
+            </h1>
           </div>
-        </Fade>
+        </div>
+      </Fade>
 
-        <div className="row">
-          <Slide left duration={1000}>
-            <ul className="five columns contact-details">
-              <li>
-                <a href={`tel:${phone}`}>
-                  <i className="fa fa-phone"></i>
-                  {phone}
-                </a>
-              </li>
+      <div className="row">
+        <Slide left duration={1000}>
+          <ul className="five columns contact-details">
+            <li>
+              <a href={`tel:${phone}`}>
+                <i className="fa fa-phone"></i>
+                {phone}
+              </a>
+            </li>
 
-              <li>
-                <a href={`mailto:${email}`}>
-                  <i
-                    className="fa fa-envelope"
-                    style={{
-                      fontSize: '12px'
-                    }}
-                  ></i>
-                  {email}
-                </a>
-              </li>
-
-              <li className="address">
-                <a
-                  href={maplink}
-                  target="_blank"
+            <li>
+              <a href={`mailto:${email}`}>
+                <i
+                  className="fa fa-envelope"
                   style={{
-                    display: 'flex'
+                    fontSize: '12px'
                   }}
-                >
-                  <i className="fa fa-map-marker"></i>
-                  {city}, {state} <br /> {country}
-                </a>
-              </li>
+                ></i>
+                {email}
+              </a>
+            </li>
 
-              {/* <aside
+            <li className="address">
+              <a
+                href={maplink}
+                target="_blank"
+                style={{
+                  display: 'flex'
+                }}
+              >
+                <i className="fa fa-map-marker"></i>
+                {city}, {state} <br /> {country}
+              </a>
+            </li>
+
+            {/* <aside
                 id="contactLocation"
                 className="four columns footer-widgets"
               >
@@ -75,26 +104,35 @@ class Contact extends Component {
                   allowFullScreen
                 ></iframe>
               </aside> */}
-            </ul>
-          </Slide>
+          </ul>
+        </Slide>
 
-          <Slide right duration={1000}>
-            <div className="seven columns">
+        <Slide right duration={1000}>
+          <div className="seven columns">
+            {!!fetchState.initLoaded && (
               <div id="message-success">
                 <i className="fa fa-check"></i>Your message was sent, thank you!
                 <br />
               </div>
+            )}
 
-              <div id="contactForm" name="contactForm" action="" method="POST">
+            {!fetchState.initLoaded && (
+              <form
+                id="contactForm"
+                name="contactForm"
+                action=""
+                method="POST"
+                onSubmit={handleSubmit}
+              >
                 <input
                   required
                   type="text"
                   placeholder="Name"
                   defaultValue=""
                   size="35"
-                  id="contactName"
-                  name="contactName"
-                  onChange={this.handleChange}
+                  id="name"
+                  name="name"
+                  onChange={handleChange}
                 />
 
                 <input
@@ -103,9 +141,9 @@ class Contact extends Component {
                   placeholder="Email"
                   defaultValue=""
                   size="35"
-                  id="contactEmail"
-                  name="contactEmail"
-                  onChange={this.handleChange}
+                  id="email"
+                  name="email"
+                  onChange={handleChange}
                 />
 
                 <textarea
@@ -113,27 +151,36 @@ class Contact extends Component {
                   placeholder="Message"
                   cols="50"
                   rows="8"
-                  id="contactMessage"
-                  name="contactMessage"
+                  id="message"
+                  name="message"
+                  onChange={handleChange}
                 ></textarea>
 
                 <div>
-                  <button className="submit" onClick={this.handleContactEmail}>
+                  <button
+                    disabled={fetchState.loading}
+                    className="submit"
+                    onClick={handleContactEmail}
+                  >
                     Send Message
                   </button>
-                  <span id="image-loader">
-                    <img alt="" src="images/loader.gif" />
-                  </span>
+                  {fetchState.loading && (
+                    <span id="image-loader">
+                      <img alt="" src="images/loader.gif" />
+                    </span>
+                  )}
                 </div>
-              </div>
+              </form>
+            )}
 
-              <div id="message-warning"></div>
-            </div>
-          </Slide>
-        </div>
-      </section>
-    );
-  }
-}
+            {!!fetchState.error && (
+              <div id="message-warning">{fetchState.error.message}</div>
+            )}
+          </div>
+        </Slide>
+      </div>
+    </section>
+  );
+};
 
 export default Contact;

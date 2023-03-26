@@ -911,7 +911,7 @@ ul#nav li.current a {
 }
 #message-warning,
 #message-success {
-  display: none;
+  /* display: none; */
   background: #0f0f0f;
   padding: 10px 20px;
   width: fit-content;
@@ -928,7 +928,7 @@ ul#nav li.current a {
   margin-right: 10px;
 }
 #image-loader {
-  display: none;
+  /* display: none; */
   position: relative;
   left: 18px;
   top: 17px;

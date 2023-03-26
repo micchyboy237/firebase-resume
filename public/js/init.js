@@ -56,60 +56,6 @@ jQuery(document).ready(function ($) {
     });
 
     showOrHideNavOnScroll();
-
-    $("#contactForm").on("click", "button.submit", function () {
-      const $submitButton = $(this);
-
-      $submitButton.attr("disabled", "disabled");
-
-      $("#message-warning").hide();
-      $("#image-loader").fadeIn();
-
-      var name = $("#contactForm #contactName").val();
-      var email = $("#contactForm #contactEmail").val();
-      var message = $("#contactForm #contactMessage").val();
-
-      var data = "name=" + name + "&email=" + email + "&message=" + message;
-
-      $.ajax({
-        type: "POST",
-        url: "/api/chat",
-        data: data,
-        success: function (data) {
-          $("#image-loader").fadeOut();
-          $("#contactForm").fadeOut(250);
-
-          setTimeout(() => {
-            // $("#contactForm")[0].reset();
-            $("#message-success").fadeIn();
-          }, 250);
-
-          // setTimeout(() => {
-          //   $("#message-success").fadeOut(250);
-
-          //   setTimeout(() => {
-          //     $("#contactForm").fadeIn();
-          //   }, 250);
-          // }, 3000);
-        },
-        error: function (err) {
-          const errorMessage =
-            err?.responseText || "A server error has occurred";
-
-          $("#image-loader").fadeOut();
-          $("#message-warning").html(errorMessage);
-          $("#message-warning").fadeIn();
-
-          // setTimeout(() => {
-          //   $("#message-warning").fadeOut();
-          // }, 3000);
-        },
-        complete: function (err) {
-          $submitButton.removeAttr("disabled");
-        },
-      });
-      return false;
-    });
   }, time);
 
   function showOrHideNavOnScroll() {
