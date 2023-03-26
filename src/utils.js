@@ -1,12 +1,24 @@
-export const waitForElement = (selector) => {
+export const waitForElement = (elementOrSelector, parent = document) => {
+  const getElement = () => {
+    if (typeof elementOrSelector === 'string') {
+      return parent.querySelector(elementOrSelector);
+    }
+
+    return elementOrSelector;
+  };
+
   return new Promise((resolve) => {
-    if (document.querySelector(selector)) {
-      return resolve(document.querySelector(selector));
+    const element = getElement(elementOrSelector);
+
+    if (element) {
+      return resolve(element);
     }
 
     const observer = new MutationObserver((mutations) => {
-      if (document.querySelector(selector)) {
-        resolve(document.querySelector(selector));
+      const observedElement = getElement(elementOrSelector);
+
+      if (observedElement) {
+        resolve(observedElement);
         observer.disconnect();
       }
     });
@@ -23,8 +35,6 @@ export const scrollToHash = () => {
 
   if (hash) {
     waitForElement(hash).then((elm) => {
-      console.debug('Element is ready');
-
       elm.scrollIntoView({ behavior: 'instant' });
     });
   }

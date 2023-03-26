@@ -33,7 +33,11 @@ jQuery(document).ready(function ($) {
         var active_section;
 
         active_section = $(this);
-        if (direction === "up") active_section = active_section.prev();
+        if (direction === "up")
+          active_section = $(
+            active_section.parent().prev()[0].querySelector("section") ||
+              active_section.parent().prev()[0]
+          );
 
         var active_link = $(
           '#nav-wrap a[href="#' + active_section.attr("id") + '"]'

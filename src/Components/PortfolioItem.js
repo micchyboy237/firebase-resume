@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
+import firebaseAnalytics from '../firebaseAnalytics';
 // import Modal from './Modal';
 
 const PortfolioItem = ({ title, image, url, ...props }) => {
-  // const [showModal, setShowModal] = useState(false);
-
-  // function handleClick() {
-  //   setShowModal(true);
-  // }
-
-  // function handleClose() {
-  //   setShowModal(false);
-  // }
+  const handleClick = () => {
+    firebaseAnalytics.logView(url, `Show Portfolio: ${title}`);
+  };
 
   const projectImage = 'images/portfolio/' + image;
 
   return (
     <div {...props}>
-      <a className="item-wrap" href={url} target="_blank">
+      <a className="item-wrap" href={url} target="_blank" onClick={handleClick}>
         <div className="img-wrapper">
           <div className="img-container">
             <img alt={title} src={projectImage} />

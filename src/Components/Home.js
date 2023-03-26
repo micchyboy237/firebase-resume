@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal';
+import firebaseAnalytics from '../firebaseAnalytics';
 import BgParticles from './BgParticles';
 
 class Home extends Component {
+  handleViewResume() {
+    firebaseAnalytics.logClick('View Resume');
+  }
+
   render() {
     if (!this.props.data) return null;
 
@@ -39,6 +44,7 @@ class Home extends Component {
                   href={resumeDownload}
                   target="_blank"
                   className="button btn download-btn"
+                  onClick={this.handleViewResume}
                 >
                   <i className="fa fa-download"></i>Resume
                 </a>

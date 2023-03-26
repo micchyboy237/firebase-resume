@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Fade, Slide } from 'react-reveal';
+import firebaseAnalytics from '../firebaseAnalytics';
 
 class Contact extends Component {
+  handleContactEmail() {
+    firebaseAnalytics.logClick('Contact Email');
+  }
+
   render() {
     if (!this.props.data) return null;
 
@@ -113,7 +118,9 @@ class Contact extends Component {
                 ></textarea>
 
                 <div>
-                  <button className="submit">Send Message</button>
+                  <button className="submit" onClick={this.handleContactEmail}>
+                    Send Message
+                  </button>
                   <span id="image-loader">
                     <img alt="" src="images/loader.gif" />
                   </span>
