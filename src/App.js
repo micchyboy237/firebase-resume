@@ -51,7 +51,9 @@ class App extends Component {
   }
 
   render() {
-    return (
+    const hasLoaded = !!this.state.resumeData.main;
+
+    return !hasLoaded ? null : (
       <div className="App">
         <Header data={this.state.resumeData.main} />
         <Home data={this.state.resumeData.main} />

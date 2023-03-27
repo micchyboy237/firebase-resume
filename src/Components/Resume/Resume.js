@@ -6,12 +6,10 @@ import Work from './Work';
 
 class Resume extends Component {
   render() {
-    if (!this.props.data) return null;
-
     return (
       <section id="skills">
         <Slide left duration={1300}>
-          <Skills data={this.props.data.skills} />
+          <Skills data={this.props.data?.skills} />
         </Slide>
 
         {/* <Slide left duration={1300}>

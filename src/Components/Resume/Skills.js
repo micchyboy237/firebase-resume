@@ -26,7 +26,9 @@ class Skills extends Component {
   }
 
   render() {
-    const skillCategories = this.props.data.map(({ category, items }) => {
+    const data = this.props.data;
+
+    const skillCategories = data?.map(({ category, items }) => {
       return (
         <div key={category}>
           <p className="title">{category}</p>

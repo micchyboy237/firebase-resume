@@ -9,13 +9,13 @@ class Home extends Component {
   }
 
   render() {
-    if (!this.props.data) return null;
+    const data = this.props.data;
 
-    const project = this.props.data.project;
-    const github = this.props.data.github;
-    const name = this.props.data.name;
-    const description = this.props.data.description;
-    const resumeDownload = this.props.data.resumedownload;
+    const project = data?.project;
+    const github = data?.github;
+    const name = data?.name;
+    const description = data?.description;
+    const resumeDownload = data?.resumedownload;
 
     return (
       <section id="home">

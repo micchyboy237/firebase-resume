@@ -1,6 +1,5 @@
 jQuery(document).ready(function ($) {
-  var time = 380;
-  setTimeout(function () {
+  waitForElement(".App").then(() => {
     $("h1.responsive-headline").fitText(1, {
       minFontSize: "40px",
       maxFontSize: "80px",
@@ -56,7 +55,7 @@ jQuery(document).ready(function ($) {
     });
 
     showOrHideNavOnScroll();
-  }, time);
+  });
 
   function showOrHideNavOnScroll() {
     $(window).on("scroll", function () {
@@ -69,6 +68,38 @@ jQuery(document).ready(function ($) {
       } else {
         nav.addClass("opaque").fadeIn("fast");
       }
+    });
+  }
+
+  function waitForElement(elementOrSelector, parent = document) {
+    const getElement = () => {
+      if (typeof elementOrSelector === "string") {
+        return parent.querySelector(elementOrSelector);
+      }
+
+      return elementOrSelector;
+    };
+
+    return new Promise((resolve) => {
+      const element = getElement(elementOrSelector);
+
+      if (element) {
+        return resolve(element);
+      }
+
+      const observer = new MutationObserver((mutations) => {
+        const observedElement = getElement(elementOrSelector);
+
+        if (observedElement) {
+          resolve(observedElement);
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
     });
   }
 });

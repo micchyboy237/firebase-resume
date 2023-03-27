@@ -5,9 +5,9 @@ import PortfolioItem from './PortfolioItem';
 let id = 0;
 class Portfolio extends Component {
   render() {
-    if (!this.props.data) return null;
+    const data = this.props.data;
 
-    const projects = this.props.data.projects.map(function (project) {
+    const projects = data?.projects.map(function (project) {
       return (
         <PortfolioItem
           key={id++}

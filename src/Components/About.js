@@ -4,18 +4,18 @@ import { getAge } from '../helpers';
 
 class About extends Component {
   render() {
-    if (!this.props.data) return null;
+    const data = this.props.data;
 
-    const profilepic = 'images/' + this.props.data.image;
-    const bio = this.props.data.bio;
-    const nationality = this.props.data.nationality;
-    const age = getAge(this.props.data.birthday);
-    const school = this.props.data.school;
-    const languages = this.props.data.languages;
+    const profilepic = 'images/' + data?.image;
+    const bio = data?.bio;
+    const nationality = data?.nationality;
+    const age = getAge(data?.birthday);
+    const school = data?.school;
+    const languages = data?.languages;
     const email = this.props.email;
-    const state = this.props.address.state;
-    const country = this.props.address.country;
-    const maplink = this.props.address.maplink;
+    const state = this.props.address?.state;
+    const country = this.props.address?.country;
+    const maplink = this.props.address?.maplink;
 
     return (
       <section id="about">

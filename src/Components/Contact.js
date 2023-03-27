@@ -37,14 +37,12 @@ const Contact = ({ data }) => {
     firebaseAnalytics.logClick('Contact Email');
   };
 
-  if (!data) return null;
-
-  const city = data.address.city;
-  const state = data.address.state;
-  const country = data.address.country;
-  const maplink = data.address.maplink;
-  const phone = data.phone;
-  const email = data.email;
+  const city = data?.address.city;
+  const state = data?.address.state;
+  const country = data?.address.country;
+  const maplink = data?.address.maplink;
+  const phone = data?.phone;
+  const email = data?.email;
 
   return (
     <section id="contact">
