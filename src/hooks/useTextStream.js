@@ -13,62 +13,77 @@ const useTextStream = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(StreamStatus.pending);
-  let eventSource = useRef(null);
+  let controller = useRef(null);
 
   const fetchEventStream = (url) => {
     setLoading(true);
     setError(null);
     setStatus(StreamStatus.loading);
 
-    eventSource.current = new EventSource(url);
+    controller.current = new AbortController();
+    const signal = controller.current.signal;
 
-    eventSource.current.onmessage = function (e) {
-      const message = e.data;
+    fetch(url, {
+      method: 'POST',
+      signal: signal
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const reader = response.body.getReader();
 
-      if (message?.trim() === 'stop') {
+        const streamReader = () => {
+          reader
+            .read()
+            .then(({ done, value }) => {
+              if (done) {
+                setStatus(StreamStatus.done);
+                setLoading(false);
+                return;
+              }
+              const message = new TextDecoder().decode(value);
+              if (message.trim() === 'stop') {
+                setStatus(StreamStatus.done);
+                setLoading(false);
+                return;
+              }
+              setData((prevData) => [...prevData, message || '\n']);
+              streamReader();
+            })
+            .catch((error) => {
+              console.error('Error reading response body:', error);
+              setLoading(false);
+              setStatus(StreamStatus.error);
+              setError(new Error('Stream ended unexpectedly.'));
+            });
+        };
+
+        streamReader();
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
         setLoading(false);
-        stopEventStream();
-        setStatus(StreamStatus.done);
-      } else {
-        setData((d) => [...d, message || '\n']);
-      }
-    };
-
-    eventSource.current.onerror = function (e) {
-      if (![StreamStatus.stopped, StreamStatus.done].includes(status)) {
-        console.error('EventSource failed:', e);
-        setLoading(false);
-
-        console.info('Closing Stream');
-
-        eventSource.current?.close();
-
-        setError(new Error('Stream ended unexpectedly.'));
         setStatus(StreamStatus.error);
-      }
-    };
+        setError(new Error('Failed to fetch data from the server.'));
+      });
   };
 
   const stopEventStream = () => {
-    setLoading(false);
-
-    if (eventSource.current) {
-      console.info('Closing Stream');
-
-      eventSource.current.close();
+    if (controller.current) {
+      controller.current.abort();
       setStatus(StreamStatus.stopped);
+      setLoading(false);
     }
   };
 
   const runEventStream = (url) => {
     clearData();
-
     fetchEventStream(url);
   };
 
   const clearData = () => {
     stopEventStream();
-    setLoading(false);
     setData([]);
     setStatus(StreamStatus.pending);
     setError(null);
