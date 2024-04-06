@@ -64,7 +64,7 @@ body {
   margin: 0 auto 18px auto;
 }
 #home .banner-text h3 {
-  font: 18px/1.9em "librebaskerville-regular", serif;
+  font: 20px/1.9em "opensans-semibold", sans-serif;
   color: #ddd;
   margin: 0 auto;
   width: 70%;
@@ -76,7 +76,6 @@ body {
 #home .banner-text hr {
   width: 60%;
   margin: 18px auto 24px auto;
-  border-color: #2f2d2e;
   border-color: rgba(150, 150, 150, 0.1);
 }
 
@@ -875,40 +874,93 @@ ul#nav li.current a {
 #contact textarea,
 #contact select {
   padding: 10px 20px;
-  color: #eee;
-  background: #373233;
-  margin-bottom: 30px;
+  color: #000;
+  background: #fff;
+  /* color: #eee;
+  background: #373233; */
+  /* margin-bottom: 20px; */
   border: 0;
   outline: none;
-  font-size: 15px;
+  font: 16px/24px "opensans-regular", sans-serif;
   line-height: 24px;
 }
-#contact input:focus,
+/* #contact input:focus,
 #contact textarea:focus,
 #contact select:focus {
   color: #fff;
   background-color: #373233;
+} */
+#contact input,
+#contact textarea {
+  font-size: 16px;
+  width: 100%;
+}
+#contact #chatbox {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  /* background: #fff; */
+  color: #eee;
+  background: #373233;
+  height: 300px;
+}
+#contact #chats {
+  flex: 1;
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+}
+#contact #chatbar {
+  padding: 14px 20px;
+  margin-bottom: 0;
 }
 #contact button.submit {
-  padding: 12px 30px;
+  padding: 8px 30px;
   color: #fff;
   background: #09b2fa;
-  border: none;
-  height: auto;
+  border: 1px solid #09b2fa;
+  /* height: auto; */
   display: inline-block;
   border-radius: 0px;
 }
 #contact button.submit:hover {
   color: #09b2fa;
   background: #fff;
+  border: 1px solid #fff;
+}
+#contact button.clear {
+  padding: 8px 30px;
+  color: #aaa;
+  background: transparent;
+  border: 1px solid #aaa;
+  height: auto;
+  display: inline-block;
+  border-radius: 0px;
+}
+#contact button.clear:hover {
+  color: #fff;
+  background: #aaa;
+  border: 1px solid #aaa;
+}
+#contact button.stop {
+  padding: 8px 30px;
+  color: #aaa;
+  background: transparent;
+  border: 1px solid #aaa;
+  height: auto;
+  display: inline-block;
+  border-radius: 0px;
+}
+#contact button.stop:hover {
+  color: #fff;
+  background: #aaa;
+  border: 1px solid #aaa;
+}
+#contact .prompt-label {
+  font-size: 20px;
 }
 #contact span.required {
   color: #09b2fa;
   font-size: 13px;
-}
-#contact input,
-#contact textarea {
-  width: 100%;
 }
 #message-warning,
 #message-success {

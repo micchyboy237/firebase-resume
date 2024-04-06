@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import { Fade, Slide } from 'react-reveal';
 import firebaseAnalytics from '../firebaseAnalytics';
 import useLazyFetch from '../hooks/useLazyFetch';
+import Chatbot from './Chatbot';
 
 const Contact = ({ data }) => {
   const [inputs, setInputs] = useState({});
@@ -107,73 +108,7 @@ const Contact = ({ data }) => {
 
         <Slide right duration={1000}>
           <div className="seven columns">
-            {!!fetchState.initLoaded && (
-              <div id="message-success">
-                <i className="fa fa-check"></i>Your message was sent, thank you!
-                <br />
-              </div>
-            )}
-
-            {!fetchState.initLoaded && (
-              <form
-                id="contactForm"
-                name="contactForm"
-                action=""
-                method="POST"
-                onSubmit={handleSubmit}
-              >
-                <input
-                  required
-                  type="text"
-                  placeholder="Name"
-                  defaultValue=""
-                  size="35"
-                  id="name"
-                  name="name"
-                  onChange={handleChange}
-                />
-
-                <input
-                  required
-                  type="text"
-                  placeholder="Email"
-                  defaultValue=""
-                  size="35"
-                  id="email"
-                  name="email"
-                  onChange={handleChange}
-                />
-
-                <textarea
-                  required
-                  placeholder="Message"
-                  cols="50"
-                  rows="8"
-                  id="message"
-                  name="message"
-                  onChange={handleChange}
-                ></textarea>
-
-                <div>
-                  <button
-                    disabled={fetchState.loading}
-                    className="submit"
-                    onClick={handleContactEmail}
-                  >
-                    Send Message
-                  </button>
-                  {fetchState.loading && (
-                    <span id="image-loader">
-                      <img alt="" src="images/loader.gif" />
-                    </span>
-                  )}
-                </div>
-              </form>
-            )}
-
-            {!!fetchState.error && (
-              <div id="message-warning">{fetchState.error.message}</div>
-            )}
+            <Chatbot />
           </div>
         </Slide>
       </div>

@@ -15,103 +15,67 @@ const Chatbot = () => {
   const [generate, { data, error, loading, clear, stop }] = useChat();
 
   return (
-    <>
-      {showChatbot && (
-        <div
-          id="chatbot"
-          style={{
-            position: 'fixed',
-            zIndex: 999,
-            bottom: 12,
-            right: 12
-          }}
-        >
-          <div className="bg-white border rounded shadow-lg">
-            <div className="flex justify-between items-center bg-gray-200 rounded-t p-2">
-              <p className="font-semibold">Chatbot</p>
+    <div id="chatbot">
+      <div className="bg-white border rounded shadow-lg">
+        <div className="p-4">
+          <div className="mb-3">
+            {/* <AutoResizingTextarea
+              className="prompt-textarea"
+              placeholder="Summarize your skills and experience."
+              value={prompt}
+              onChangeValue={setPrompt}
+            /> */}
+            <div id="chatbox">
+              <div id="chats">{data && <ChatText>{data}</ChatText>}</div>
+
+              <input
+                required
+                type="text"
+                placeholder="Ask me anything!"
+                defaultValue=""
+                value={prompt}
+                id="chatbar"
+                onChange={(e) => setPrompt(e.target.value)}
+              />
+            </div>
+
+            {/* {error && <p className="text-red-500">{JSON.stringify(error)}</p>} */}
+          </div>
+
+          <div
+            style={{
+              flexDirection: 'row',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}
+          >
+            <button
+              className="clear"
+              disabled={loading}
+              onClick={() => clear()}
+            >
+              Clear
+            </button>
+            {!loading ? (
               <button
-                className="text-blue-500 hover:text-blue-700 focus:outline-none"
-                onClick={() => setShowChatbot(false)}
+                className="submit"
+                onClick={() => {
+                  generate(prompt, generationConfig);
+                  setPrompt('');
+                }}
               >
-                Close
+                Send
               </button>
-            </div>
-            <div className="p-4">
-              <div className="mb-3">
-                <label
-                  htmlFor="prompt-textarea"
-                  className="block text-gray-600"
-                >
-                  Prompt
-                </label>
-                <AutoResizingTextarea
-                  id="prompt-textarea"
-                  className="border rounded w-full"
-                  placeholder="Prompt"
-                  value={prompt}
-                  onChangeValue={setPrompt}
-                />
-                {error && (
-                  <p className="text-red-500">{JSON.stringify(error)}</p>
-                )}
-              </div>
-
-              <div className="flex justify-end space-x-4">
-                {!loading && (
-                  <button
-                    disabled={loading}
-                    className="px-4 py-2 border rounded bg-blue-500 text-white"
-                    onClick={() => generate(prompt, generationConfig)}
-                  >
-                    {!loading && !data ? 'Generate' : 'Re-generate'}
-                  </button>
-                )}
-
-                {!loading && (
-                  <button
-                    className="px-4 py-2 border rounded bg-gray-200 border border-gray-400"
-                    onClick={() => clear()}
-                  >
-                    Clear
-                  </button>
-                )}
-                {loading && (
-                  <button
-                    className="px-4 py-2 border rounded bg-gray-200 border border-gray-400"
-                    onClick={() => stop()}
-                  >
-                    Stop
-                  </button>
-                )}
-              </div>
-
-              <div>
-                {loading ||
-                  (data && <p className="mt-4 mb-2 text-sm">Response:</p>)}
-
-                {data && <ChatText>{data}</ChatText>}
-              </div>
-            </div>
+            ) : (
+              <button className="stop" onClick={() => stop()}>
+                Stop
+              </button>
+            )}
           </div>
         </div>
-      )}
-      <div
-        id="chatbot-toggle"
-        style={{
-          position: 'fixed',
-          zIndex: 999,
-          bottom: 100,
-          right: 12
-        }}
-      >
-        <button
-          onClick={() => setShowChatbot(!showChatbot)}
-          className="cursor-pointer rounded bg-blue-500 hover:bg-blue-700 text-white font-bold"
-        >
-          Scroll to Top
-        </button>
       </div>
-    </>
+    </div>
   );
 };
 

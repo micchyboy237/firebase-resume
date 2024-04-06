@@ -6,7 +6,6 @@ import About from './Components/About';
 import Resume from './Components/Resume';
 import Portfolio from './Components/Portfolio';
 import Contact from './Components/Contact';
-import Chatbot from './Components/Chatbot';
 import Footer from './Components/Footer';
 import { scrollToHash } from './utils';
 import Home from './Components/Home';
@@ -65,9 +64,8 @@ class App extends Component {
         />
         <ResumeWithAnalytics data={this.state.resumeData.resume} />
         <PortfolioWithAnalytics data={this.state.resumeData.portfolio} />
-        {/* <ContactWithAnalytics data={this.state.resumeData.main} /> */}
+        <ContactWithAnalytics data={this.state.resumeData.main} />
         {/* <Footer data={this.state.resumeData.main} /> */}
-        <Chatbot />
       </div>
     );
   }

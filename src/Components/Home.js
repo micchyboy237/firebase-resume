@@ -37,7 +37,7 @@ class Home extends Component {
                   className="smoothscroll button btn contact-btn"
                   href="#contact"
                 >
-                  <i className="fa fa-comment"></i>Contact
+                  <i className="fa fa-comment"></i>AI Chat
                 </a>
 
                 <a
