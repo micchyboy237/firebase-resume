@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useChat from './useChat';
 import AutoResizingTextarea from '../AutoResizingTextarea';
+import ChatText from './Text';
 
 const generationConfig = {
   top_k: 10,
@@ -12,25 +13,6 @@ const Chatbot = () => {
   const [showChatbot, setShowChatbot] = useState(false);
 
   const [generate, { data, error, loading, clear, stop }] = useChat();
-
-  const renderNestedValue = (key, value) => {
-    if (typeof value === 'object' && value !== null) {
-      return (
-        <div className="nested-object">
-          {Object.entries(value).map(([nestedKey, nestedValue]) => (
-            <div key={nestedKey} className="flex items-center">
-              <div className="w-32 font-bold">{nestedKey}</div>
-              <div className="flex-1">
-                {renderNestedValue(nestedKey, nestedValue)}
-              </div>
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-    return value;
-  };
 
   return (
     <>
@@ -107,13 +89,7 @@ const Chatbot = () => {
                 {loading ||
                   (data && <p className="mt-4 mb-2 text-sm">Response:</p>)}
 
-                {data && (
-                  <div className="flex-1">
-                    {Object.entries(data).map(([key, value]) =>
-                      renderNestedValue(key, value)
-                    )}
-                  </div>
-                )}
+                {data && <ChatText>{data}</ChatText>}
               </div>
             </div>
           </div>

@@ -14,20 +14,13 @@ const useChat = () => {
   const { run, ...streamState } = useTextStream();
 
   const generate = (prompt, generationConfig) => {
-    const params = {
+    const body = {
       prompt,
       ...(generationConfig || {})
     };
 
-    const streamUrl = generateUrl({
-      origin: API_URL_MODELS_GENERATE,
-      params: params
-    });
-
-    console.log('streamUrl', streamUrl);
-
     if (streamState.status !== StreamStatus.loading) {
-      run(streamUrl);
+      run(API_URL_MODELS_GENERATE, body);
     }
   };
 

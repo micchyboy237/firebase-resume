@@ -15,7 +15,7 @@ const useTextStream = () => {
   const [status, setStatus] = useState(StreamStatus.pending);
   let controller = useRef(null);
 
-  const fetchEventStream = (url) => {
+  const fetchEventStream = (url, body) => {
     setLoading(true);
     setError(null);
     setStatus(StreamStatus.loading);
@@ -25,7 +25,11 @@ const useTextStream = () => {
 
     fetch(url, {
       method: 'POST',
-      signal: signal
+      signal: signal,
+      headers: {
+        'Content-Type': 'application/json' // Set the content type header
+      },
+      body: JSON.stringify(body)
     })
       .then((response) => {
         if (!response.ok) {
@@ -42,7 +46,12 @@ const useTextStream = () => {
                 setLoading(false);
                 return;
               }
-              const message = new TextDecoder().decode(value);
+              let message = new TextDecoder().decode(value);
+              console.log('Message: ', message);
+              if (message.startsWith('data:')) {
+                message = message.replace(/data:?\s?/, '');
+              }
+
               if (message.trim() === 'stop') {
                 setStatus(StreamStatus.done);
                 setLoading(false);
@@ -77,9 +86,9 @@ const useTextStream = () => {
     }
   };
 
-  const runEventStream = (url) => {
+  const runEventStream = (url, body) => {
     clearData();
-    fetchEventStream(url);
+    fetchEventStream(url, body);
   };
 
   const clearData = () => {
