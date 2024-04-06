@@ -1,4 +1,3 @@
-const host =
-  process.env.API_URL || 'https://corgi-cunning-filly.ngrok-free.app';
+const host = process.env.API_URL || 'http://127.0.0.1:80';
 
-export const API_URL_MODELS_GENERATE = `${host}/models/generation/generate`;
+export const API_URL_MODELS_GENERATE = `${host}/generate`;

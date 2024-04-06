@@ -10,13 +10,11 @@ const StreamStatus = {
   error: 'error'
 };
 
-const useChat = (model, options = {}) => {
+const useChat = () => {
   const { run, ...streamState } = useTextStream();
 
   const generate = (prompt, generationConfig) => {
     const params = {
-      model,
-      checkpoint: options.checkpoint,
       prompt,
       ...(generationConfig || {})
     };
