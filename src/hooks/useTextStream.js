@@ -46,19 +46,30 @@ const useTextStream = () => {
                 setLoading(false);
                 return;
               }
-              let message = new TextDecoder().decode(value);
-              console.log('Message: ', message);
-              if (message.startsWith('data:')) {
-                message = message.replace(/data:?\s?/, '');
-              }
+              let text = new TextDecoder().decode(value);
+              let messages = [];
 
-              if (message.trim() === 'stop') {
+              if (text.startsWith('data:')) {
+                // Replace all "newline" with "\n"
+                text = text.replace(/newline/g, '\n');
+                // Get all messages after "data:"
+                messages = text.split('data:');
+                // Remove first element
+                messages = messages.slice(1);
+                // Add all messages to the data array
+                messages.forEach((message) => {
+                  setData((prevData) => [...prevData, message]);
+                });
+                streamReader();
+              } else if (text.startsWith('stop')) {
+                console.log('Stopping stream...');
                 setStatus(StreamStatus.done);
                 setLoading(false);
                 return;
               }
-              setData((prevData) => [...prevData, message || '\n']);
-              streamReader();
+
+              //   setData((prevData) => [...prevData, text || '\n']);
+              //   streamReader();
             })
             .catch((error) => {
               console.error('Error reading response body:', error);
