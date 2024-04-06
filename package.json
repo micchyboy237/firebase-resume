@@ -23,7 +23,8 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy --only hosting",
     "clean": "rm -rf .firebase",
-    "server": "ngrok http http://localhost:8000"
+    "server.dev": "ngrok http http://localhost:8000",
+    "server.prod": "ngrok http --domain=corgi-cunning-filly.ngrok-free.app 80"
   },
   "eslintConfig": {
     "extends": [

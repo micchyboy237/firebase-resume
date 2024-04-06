@@ -57,6 +57,7 @@ const Chatbot = () => {
           value={prompt}
           onChangeValue={setPrompt}
         />
+        {error && <p className="text-red-500">{JSON.stringify(error)}</p>}
       </div>
 
       <div className="flex items-center">
