@@ -38,7 +38,7 @@ const Chatbot = () => {
                   </div>
                 ))}
                 {currentPrompt && (
-                  <div>
+                  <div key={chats.length - 1}>
                     <p className="chat-prompt">{currentPrompt}</p>
                     <ChatText className="chat-text">{text}</ChatText>
                   </div>
