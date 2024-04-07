@@ -8,11 +8,7 @@ const StreamStatus = {
   error: 'error'
 };
 
-const useTextStream = ({
-  onStart = () => null,
-  onDone = (text, status) => null,
-  onError = (e) => null
-} = {}) => {
+const useTextStream = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,7 +19,6 @@ const useTextStream = ({
     setLoading(true);
     setError(null);
     setStatus(StreamStatus.loading);
-    onStart?.();
 
     controller.current = new AbortController();
     const signal = controller.current.signal;
@@ -49,10 +44,8 @@ const useTextStream = ({
               if (done) {
                 setStatus(StreamStatus.done);
                 setLoading(false);
-                onDone?.(data.join(''), StreamStatus.done);
                 return;
               }
-
               let text = new TextDecoder().decode(value);
               let messages = [];
 
@@ -72,7 +65,6 @@ const useTextStream = ({
                 console.log('Stopping stream...');
                 setStatus(StreamStatus.done);
                 setLoading(false);
-                onDone?.(data.join(''), StreamStatus.done);
                 return;
               }
 
@@ -84,7 +76,6 @@ const useTextStream = ({
               setLoading(false);
               setStatus(StreamStatus.error);
               setError(new Error('Stream ended unexpectedly.'));
-              onError?.(error);
             });
         };
 

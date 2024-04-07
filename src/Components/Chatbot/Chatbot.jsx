@@ -13,13 +13,7 @@ const Chatbot = () => {
   const [currentPrompt, setCurrentPrompt] = useState('');
   const [chats, setChats] = useState([]);
 
-  const [generate, { data: text, error, loading, clear, stop }] = useChat({
-    onDone: (chat) => {
-      console.log('onDone', chat, text);
-
-      //   clear();
-    }
-  });
+  const [generate, { data: text, error, loading, clear, stop }] = useChat();
   console.log('CHATS', chats);
   console.log('Text: ', text);
 
