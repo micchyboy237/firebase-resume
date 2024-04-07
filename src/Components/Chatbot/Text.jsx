@@ -3,7 +3,6 @@ import React from 'react';
 const Text = ({ children, className }) => {
   return (
     <p
-      //   className={`inline whitespace-pre-line text-sm ${className}`}
       className={className}
       style={{
         whiteSpace: 'pre-line',

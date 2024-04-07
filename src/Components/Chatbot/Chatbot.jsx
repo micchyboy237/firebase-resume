@@ -10,9 +10,18 @@ const generationConfig = {
 
 const Chatbot = () => {
   const [prompt, setPrompt] = useState('');
-  const [showChatbot, setShowChatbot] = useState(false);
+  const [currentPrompt, setCurrentPrompt] = useState('');
+  const [chats, setChats] = useState([]);
 
-  const [generate, { data, error, loading, clear, stop }] = useChat();
+  const [generate, { data: text, error, loading, clear, stop }] = useChat({
+    onDone: (chat) => {
+      console.log('onDone', chat, text);
+
+      //   clear();
+    }
+  });
+  console.log('CHATS', chats);
+  console.log('Text: ', text);
 
   return (
     <div id="chatbot">
@@ -26,7 +35,21 @@ const Chatbot = () => {
               onChangeValue={setPrompt}
             /> */}
             <div id="chatbox">
-              <div id="chats">{data && <ChatText>{data}</ChatText>}</div>
+              {/* <div id="chats">{data && <ChatText>{data}</ChatText>}</div> */}
+              <div id="chats">
+                {chats.map((chat, i) => (
+                  <div key={i}>
+                    <p className="chat-prompt">{chat.prompt}</p>
+                    <ChatText className="chat-text">{chat.text}</ChatText>
+                  </div>
+                ))}
+                {currentPrompt && (
+                  <div>
+                    <p className="chat-prompt">{currentPrompt}</p>
+                    <ChatText className="chat-text">{text}</ChatText>
+                  </div>
+                )}
+              </div>
 
               <input
                 required
@@ -53,7 +76,12 @@ const Chatbot = () => {
             <button
               className="clear"
               disabled={loading}
-              onClick={() => clear()}
+              onClick={() => {
+                clear();
+                setChats([]);
+                setPrompt('');
+                setCurrentPrompt('');
+              }}
             >
               Clear
             </button>
@@ -61,8 +89,19 @@ const Chatbot = () => {
               <button
                 className="submit"
                 onClick={() => {
-                  generate(prompt, generationConfig);
-                  setPrompt('');
+                  setCurrentPrompt(prompt);
+                  // Remove chats with empty text
+                  setChats((prev) => prev.filter((chat) => chat.text));
+                  if (text) {
+                    setChats((prev) => [
+                      ...prev,
+                      { prompt: currentPrompt, text }
+                    ]);
+                  }
+                  setTimeout(() => {
+                    generate(prompt, generationConfig);
+                    setPrompt('');
+                  }, 0);
                 }}
               >
                 Send
