@@ -19,70 +19,60 @@ const Chatbot = () => {
 
   return (
     <div id="chatbot">
-      <div className="bg-white border rounded shadow-lg">
-        <div className="p-4">
-          <div className="mb-3">
-            {/* <AutoResizingTextarea
+      <div
+        className="bg-white border rounded shadow-lg"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: 'white',
+          borderRadius: '10px',
+          //   border: '1px solid #e0e0e0',
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
+        }}
+      >
+        {/* <AutoResizingTextarea
               className="prompt-textarea"
               placeholder="Summarize your skills and experience."
               value={prompt}
               onChangeValue={setPrompt}
             /> */}
-            <div id="chatbox">
-              {/* <div id="chats">{data && <ChatText>{data}</ChatText>}</div> */}
-              <div id="chats">
-                {chats.map((chat, i) => (
-                  <div key={i}>
-                    <p className="chat-prompt">{chat.prompt}</p>
-                    <ChatText className="chat-text">{chat.text}</ChatText>
-                  </div>
-                ))}
-                {currentPrompt && (
-                  <div key={chats.length - 1}>
-                    <p className="chat-prompt">{currentPrompt}</p>
-                    <ChatText className="chat-text">{text}</ChatText>
-                  </div>
-                )}
-              </div>
-
-              <input
-                required
-                type="text"
-                placeholder="Ask me anything!"
-                defaultValue=""
-                value={prompt}
-                id="chatbar"
-                onChange={(e) => setPrompt(e.target.value)}
-              />
-            </div>
-
-            {/* {error && <p className="text-red-500">{JSON.stringify(error)}</p>} */}
-          </div>
-
-          <div
-            style={{
-              flexDirection: 'row',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}
-          >
-            <button
-              className="clear"
-              disabled={loading}
-              onClick={() => {
-                clear();
-                setChats([]);
-                setPrompt('');
-                setCurrentPrompt('');
+        <div id="chatbox">
+          <div id="chatbox_header">
+            <p
+              style={{
+                marginBottom: 0
               }}
             >
-              Clear
-            </button>
-            {!loading ? (
-              <button
-                className="submit"
-                onClick={() => {
+              Chatbot
+            </p>
+          </div>
+          <div id="chatbox_body">
+            {chats.map((chat, i) => (
+              <div key={i}>
+                <p className="chat-prompt">{chat.prompt}</p>
+                <ChatText className="chat-text">{chat.text}</ChatText>
+              </div>
+            ))}
+            {currentPrompt && (
+              <div key={chats.length - 1}>
+                <p className="chat-prompt">{currentPrompt}</p>
+                <ChatText className="chat-text">{text}</ChatText>
+              </div>
+            )}
+          </div>
+
+          <div id="chatbox_footer">
+            <input
+              required
+              type="text"
+              placeholder="Ask me anything!"
+              defaultValue=""
+              value={prompt}
+              id="chatbar"
+              onChange={(e) => setPrompt(e.target.value)}
+              //   Send with Enter
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
                   setCurrentPrompt(prompt);
                   // Remove chats with empty text
                   setChats((prev) => prev.filter((chat) => chat.text));
@@ -96,17 +86,71 @@ const Chatbot = () => {
                     generate(prompt, generationConfig);
                     setPrompt('');
                   }, 0);
-                }}
-              >
-                Send
-              </button>
-            ) : (
-              <button className="stop" onClick={() => stop()}>
-                Stop
-              </button>
-            )}
+                }
+              }}
+            />
+
+            <div
+              style={{
+                // position: 'absolute',
+                // right: 12,
+                // top: 8,
+                // bottom: 8,
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              {!loading ? (
+                <button
+                  className="submit"
+                  onClick={() => {
+                    setCurrentPrompt(prompt);
+                    // Remove chats with empty text
+                    setChats((prev) => prev.filter((chat) => chat.text));
+                    if (text) {
+                      setChats((prev) => [
+                        ...prev,
+                        { prompt: currentPrompt, text }
+                      ]);
+                    }
+                    setTimeout(() => {
+                      generate(prompt, generationConfig);
+                      setPrompt('');
+                    }, 0);
+                  }}
+                >
+                  <i className="fa fa-envelope"></i>
+                </button>
+              ) : (
+                <button className="stop" onClick={() => stop()}>
+                  <i className="fa fa-phone"></i>
+                </button>
+              )}
+            </div>
           </div>
         </div>
+
+        {/* <div
+          style={{
+            flexDirection: 'row',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}
+        >
+          <button
+            className="clear"
+            disabled={loading}
+            onClick={() => {
+              clear();
+              setChats([]);
+              setPrompt('');
+              setCurrentPrompt('');
+            }}
+          >
+            Clear
+          </button>
+        </div> */}
       </div>
     </div>
   );

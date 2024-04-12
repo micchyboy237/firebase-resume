@@ -11,6 +11,7 @@ import { scrollToHash } from './utils';
 import Home from './Components/Home';
 import firebaseAnalytics from './firebaseAnalytics';
 import withAnalytics from './hoc/withAnalytics';
+import Chatbot from './Components/Chatbot';
 
 const AboutWithAnalytics = withAnalytics(About);
 const ResumeWithAnalytics = withAnalytics(Resume);
@@ -66,6 +67,17 @@ class App extends Component {
         <PortfolioWithAnalytics data={this.state.resumeData.portfolio} />
         <ContactWithAnalytics data={this.state.resumeData.main} />
         {/* <Footer data={this.state.resumeData.main} /> */}
+        {/* Fixed bottom right  */}
+        <div
+          style={{
+            position: 'fixed',
+            bottom: 40,
+            right: 80,
+            zIndex: 1000
+          }}
+        >
+          <Chatbot />
+        </div>
       </div>
     );
   }

@@ -890,75 +890,80 @@ ul#nav li.current a {
   color: #fff;
   background-color: #373233;
 } */
-#contact input,
-#contact textarea {
+#chatbot input,
+#chatbot textarea {
   font-size: 16px;
   width: 100%;
 }
-#contact #chatbox {
-  margin-bottom: 30px;
+#chatbot #chatbox {
+  width: 360px;
   display: flex;
   flex-direction: column;
   /* background: #fff; */
   color: #eee;
-  background: #373233;
-  height: 300px;
+  background-color: #373233;
 }
-#contact #chats {
-  flex: 1;
-  padding: 14px 20px;
-  border-bottom: 1px solid #eee;
+#chatbot #chatbox_header {
+  position: relative;
+  height: 50px;
+  color: #eee;
+  background-color: #095153;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
 }
-#contact #chatbar {
-  padding: 14px 20px;
+#chatbot #chatbox_body {
+  position: relative;
+  height: 350px;
+  padding: 14px 12px;
+}
+#chatbot #chatbox_footer {
+  position: relative;
+  height: 60px;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+#chatbot #chatbar {
+  padding: 8px 12px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+#chatbot button {
+  padding: 0;
+  width: 40px;
+  height: 40px;
   margin-bottom: 0;
 }
-#contact button.submit {
-  padding: 8px 30px;
+#chatbot button i {
   color: #fff;
-  background: #09b2fa;
-  border: 1px solid #09b2fa;
-  /* height: auto; */
-  display: inline-block;
-  border-radius: 0px;
-}
-#contact button.submit:hover {
-  color: #09b2fa;
-  background: #fff;
-  border: 1px solid #fff;
-}
-#contact button.clear {
-  padding: 8px 30px;
-  color: #aaa;
-  background: transparent;
-  border: 1px solid #aaa;
-  height: auto;
-  display: inline-block;
-  border-radius: 0px;
-}
-#contact button.clear:hover {
-  color: #fff;
-  background: #aaa;
-  border: 1px solid #aaa;
-}
-#contact button.stop {
-  padding: 8px 30px;
-  color: #aaa;
-  background: transparent;
-  border: 1px solid #aaa;
-  height: auto;
-  display: inline-block;
-  border-radius: 0px;
-}
-#contact button.stop:hover {
-  color: #fff;
-  background: #aaa;
-  border: 1px solid #aaa;
-}
-#contact .prompt-label {
   font-size: 20px;
 }
-#contact span.required {
+#chatbot button.submit {
+  color: #fff;
+  background: #09b2fa;
+  display: inline-block;
+  border-radius: 0px;
+}
+#chatbot button.clear {
+  color: #000;
+  background: transparent;
+  display: inline-block;
+  border-radius: 0px;
+}
+#chatbot button.stop {
+  color: #fff;
+  background: #d72828;
+  display: inline-block;
+  border-radius: 0px;
+}
+#chatbot .prompt-label {
+  font-size: 20px;
+}
+#chatbot span.required {
   color: #09b2fa;
   font-size: 13px;
 }
