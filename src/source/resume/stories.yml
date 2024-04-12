@@ -1,0 +1,118 @@
+version: '2.0'
+
+entities:
+  - name
+stories:
+  - story: Welcome
+    steps:
+      - bot: |
+          Hello {name}! I am JetBot, created by Jethro to assist you with his resume. What would you like to know?
+        action: utter_welcome
+
+  - story: Greet
+    steps:
+      - user: |
+          Hello there!
+        intent: greet
+      - bot: |
+          Hi {name}! How may I help you?
+        action: utter_greet
+
+  - story: Skills
+    steps:
+      - user: Skills
+        intent: greet
+      - bot: |
+          Frontend: React, React Native
+          Backend: Node.js, Python
+          Cloud Services: Firebase, AWS
+        action: utter_skills
+
+  - story: GoodBye
+    steps:
+      - user: Goodbye
+        intent: goodbye
+      - bot: Bye! Have a great day!
+        action: utter_goodbye
+
+  - story: BOT Challenge
+    steps:
+      - user: Are you a bot?
+        intent: bot_challenge
+      - bot: I am JetBot, created by Jethro to assist you with his resume. What would you like to know?
+        action: utter_iamabot
+
+  - story: Education
+    steps:
+      - intent: education
+      - action: utter_education
+
+  - story: Work Experience
+    steps:
+      - intent: workexperience
+      - action: utter_workexperience
+
+  - story: Skills
+    steps:
+      - intent: skills
+      - action: utter_skills
+
+  - story: Project
+    steps:
+      - intent: projects
+      - action: utter_projects_detail
+
+  - story: Project Yes
+    steps:
+      - intent: affirm
+      - action: utter_more_projects_detail
+
+  - story: Project No
+    steps:
+      - intent: deny
+      - action: utter_botabilities
+
+  - story: BOT Abilities
+    steps:
+      - intent: botabilities
+      - action: utter_botabilities
+
+  - story: playback_attack_detection_for_speaker_verification_systems
+    steps:
+      - intent: playback_attack_detection_for_speaker_verification_systems
+      - action: utter_playback_attack_detection_for_speaker_verification_systems
+
+  - story: ambeats_android_music_player_with_recommender_system
+    steps:
+      - intent: ambeats_android_music_player_with_recommender_system
+      - action: utter_ambeats_android_music_player_with_recommender_system
+
+  - story: speaker_diarization
+    steps:
+      - intent: speaker_diarization
+      - action: utter_speaker_diarization
+
+  - story: indian_folk_song_classification
+    steps:
+      - intent: indian_folk_song_classification
+      - action: utter_indian_folk_song_classification
+
+  - story: slytherin_game_using_genetic_algorithm
+    steps:
+      - intent: slytherin_game_using_genetic_algorithm
+      - action: utter_slytherin_game_using_genetic_algorithm
+
+  - story: named_entity_recognizer_web_application
+    steps:
+      - intent: named_entity_recognizer_web_application
+      - action: utter_named_entity_recognizer_web_application
+
+  - story: next_word_prediction
+    steps:
+      - intent: next_word_prediction
+      - action: utter_next_word_prediction
+
+  - story: about_jethro
+    steps:
+      - intent: about_jethro
+      - action: utter_about_jethro

@@ -1,0 +1,402 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - introduction
+  - projects
+  - skills
+  - about_jethro
+  - workexperience
+  - education
+  - botabilities
+  - ambeats_android_music_player_with_recommender_system
+  - speaker_diarization
+  - indian_folk_song_classification
+  - slytherin_game_using_genetic_algorithm
+  - named_entity_recognizer_web_application
+  - next_word_prediction
+  - playback_attack_detection_for_speaker_verification_systems
+  - out_of_scope
+  - nlu_fallback
+entities:
+  - name
+slots:
+  name:
+    type: text
+    influence_conversation: true
+responses:
+  utter_greet:
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text: Hi {name}! How may I help you?
+  utter_goodbye:
+    - text: Bye
+  utter_iamabot:
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text: I am JetBot, created by Master Jethro to assist you with his resume. What would you like to know?
+  utter_welcome:
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text: Hello {name}! I am JetBot, created by Jethro to assist you with his resume. What would you like to know?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Hello {name}! I am JetBot, a chatbot created to replicate Jethro. What
+        would you like to know?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Hello {name}! I am JetBot, a chatbot created by Jethro. What would you
+        like to know?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Good to have you here, {name}. I am JetBot, a chatbot created to replace
+        Jethro. What would you like to know?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Good to have you here, {name}. I am JetBot, a chatbot created to replicate
+        Jethro. What would you like to know?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Good to have you here, {name}. I am JetBot, a chatbot created by Jethro.
+        What would you like to know?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Hello {name}! I am JetBot, a chatbot created to replace Jethro. How may
+        I help you?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Good to have you here, {name}. I am JetBot, a chatbot created by Jethro.
+        How may I help you?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Hello {name}! I am JetBot, a chatbot created to replicate Jethro. How
+        may I help you?
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text:
+        Hello {name}! I am JetBot, a chatbot created by Jethro. How may I help
+        you?
+  utter_education:
+    - custom:
+        data:
+          - description: BS in Computer Engineering
+            title: De La Salle University [2007 - 2012]
+        payload: collapsible
+  utter_skills:
+    - custom:
+        data:
+          - description: React, React Native
+            title: Frontend
+          - description: Node.js, Python
+            title: Backend
+          - description: Firebase, AWS
+            title: Cloud Services
+          - description: PostgreSQL, MongoDB
+            title: Database
+          - description: Xcode, Android Studio, Expo
+            title: Softwares and Tools
+          - description: Jest, Puppeteer
+            title: Test Automation
+        payload: collapsible
+  utter_workexperience:
+    - custom:
+        data:
+          - description: |
+              Started as the sole web and mobile developer for Macanta CRM. Macanta was then acquired by JulesAI to integrate the CRM with their platform.
+            title: JulesAI - Web / Mobile Developer [Jul 2020 - Present]
+          - description: |
+              Joined the startup to kickstart the development of Graduapp for web and mobile.
+            title: 8WeekApp - Web / Mobile Developer [Jan 2019 - Jun 2020]
+          - description: |
+              Worked with different web and mobile projects for a variety of clients.
+            title: ADEC Innovations - Web / Mobile Developer [Nov 2016 - Jan 2019]
+          - description: |
+              Worked with different web and mobile projects for a variety of clients.
+            title: Asia Pacific Digital - Web / Mobile Developer [Nov 2014 - Sep 2016]
+          - description: |
+              Developed an internal web application for an insurance company.
+            title: Entertainment Gateway Group - Web Developer [Jun 2012 - Nov 2014]
+        payload: collapsible
+  utter_projects_detail:
+    - buttons:
+        - payload: Yes
+          title: Check out more project
+        - payload: What more can you do?
+          title: What more can you do?
+      custom:
+        data:
+          # - description: The project involves creating a system modeled for audio sample
+          # mainly conversations. The system has to identify various characteristics/features
+          # such as the number of speakers, who spoke which statement, who spoke at
+          # what time and the distance of speaker from the recording device.
+          - description: The project involves creating web and mobile versions from scratch. The system is built to be flexible for businesses to use custom fields and workflows.
+            title: Macanta CRM
+          # - description:
+          #     In this project, we introduced a new dataset of 307 folk songs
+          #     from five different states of India. From these audio files, we extracted
+          #     different features and tried to classify these songs into their original
+          #     labels. Mel- Spectrograms, when given to a pre-trained ResNet-50 Model,
+          #     produced better results than other features used in our experiment. Finally,
+          #     the paper was accepted to FRMS'20 Conference.
+          - description: In this project, we developed a social networking app for students, parents, teachers and school. The app serves as an online journal of their experience as a student at their institution.
+            title: Graduapp
+          # - description:
+          #     The project aimed at developing the old arcade Snake Game using
+          #     the Genetic Algorithm that allows the computer to make moves for the snake
+          #     which were learnt over the generations by running the algorithm several
+          #     times. Results show that computer scored a lot more points than an average
+          #     human being.
+          - description: The project aimed at creating a portal that features the profiles of cities and municipalities in the Philippines. Its goals are to provide a comprehensive overview of the city’s and municipality’s investment landscape and to offer strategic insights to current and prospective investors and locators.
+            title: Digital Cities PH
+          # - description:
+          #     The project involves developing an android app that displays
+          #     all the songs stored in the local storage that can be played using a minimalistic
+          #     user interface. The interface allows users to like the songs they hear and
+          #     those songs are then saved onto an online database. These liked songs were
+          #     then compared with other users who liked similar songs to provide new recommendations
+          #     using Machine Learning algorithm.
+          - description: The project involves developing an android app that allows women with myoma to track symptoms associated with uterine fibroids. Patients can be conveniently monitored by an appointed health care provider through this app.
+            title: EZ Myoma
+        payload: collapsible
+      text: Type the name of project to check it out!⌨️
+  utter_more_projects:
+    - buttons:
+        - payload: Yes
+          title: Yes
+        - payload: No
+          title: No
+      text: Would you like to check more projects?
+    - buttons:
+        - payload: Yes
+          title: Yes
+        - payload: No
+          title: No
+      text: Wanna check some more projects done by Jethro?
+  utter_more_projects_detail:
+    - custom:
+        data:
+          - description:
+              The project was a research-oriented work that involved extracting
+              cepstral features from audio obtained from the ASVSpoof 2017 benchmark dataset,
+              which were then analyzed to find out which features better affect the decision
+              of whether the spoken speech is genuine or spoof.
+            title: Playback Attack Detection for Speaker Verification Systems
+          - description:
+              The project involves developing a N-gram probabilistic model
+              that predicts the next possible words based on the entered word or a sentence
+              by the user. The prediction made by a pre-trained model trained on the text
+              of multiple storybooks.
+            title: Next-Word Prediction
+          - description:
+              The project utilizes a combination of python and natural language
+              processing to create a custom model that helps machine classify text based
+              on person, location, money, time, date and much more. We show the use of
+              Bidirectional LSTM and BERT Models to overcome the problem. The project
+              can be launched as demo version using Gradio.
+            title: Named Entity Recognizer Web Application
+        payload: collapsible
+      text: Type the name of project to check it out!⌨️
+  utter_botabilities:
+    - custom:
+        data:
+          - payload: Education
+            title: Education
+          - payload: Work Experience
+            title: Work Experience
+          - payload: Projects
+            title: Project
+          - payload: Skills
+            title: Skills
+        payload: quickReplies
+      text: Choose an option
+  utter_ambeats_android_music_player_with_recommender_system:
+    - buttons:
+        - payload: https://github.com/anshulp2912/AMBeats
+          title: Link
+      text: Click on button to check out the project 👇
+  utter_speaker_diarization:
+    - buttons:
+        - payload: https://github.com/anuj200199/Spectogram
+          title: Link
+      text: Click on button to check out the project 👇
+  utter_indian_folk_song_classification:
+    - buttons:
+        - payload: https://github.com/anshulp2912/A-dataset-of-Indian-Folk-Songs
+          title: Link
+      text: Click on button to check out the project 👇
+  utter_slytherin_game_using_genetic_algorithm:
+    - buttons:
+        - payload: https://github.com/anshulp2912/Slytherin-Game-using-Genetic-Algorithm
+          title: Link
+      text: Click on button to check out the project 👇
+  utter_named_entity_recognizer_web_application:
+    - buttons:
+        - payload: https://github.com/anshulp2912/Named-Entity-Recognition-Guide
+          title: Link
+      text: Click on button to check out the project 👇
+  utter_next_word_prediction:
+    - buttons:
+        - payload: https://github.com/anuj200199/Text-Prediction
+          title: Link
+      text: Click on button to check out the project 👇
+  utter_playback_attack_detection_for_speaker_verification_systems:
+    - buttons:
+        - payload: https://github.com/anshulp2912/ASVspoof-audio-prediction-
+          title: Link
+      text: Click on button to check out the project 👇
+  utter_about_jethro:
+    - text:
+        🧙Master Jethro is an aspiring Machine Learning Engineer who enjoys connecting
+        the dots; be it ideas from different disciplines, people from different teams,
+        or applications from different industries. 🧙Master have strong technical skills
+        and an academic background in engineering, statistics, and machine learning.
+        His passion lies in solving business problems with tailored data and algorithms
+        and communicating complex ideas to non-technical stakeholders. He is able to
+        jump across verticals to deliver high-performing AI solutions.
+  utter_out_of_scope:
+    - text: Sorry, I can't handle that request.
+  utter_please_rephrase:
+    - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_welcome
+  - utter_projects_detail
+  - utter_more_projects_detail
+  - utter_workexperience
+  - utter_skills
+  - utter_education
+  - utter_more_projects
+  - utter_botabilities
+  - utter_ambeats_android_music_player_with_recommender_system
+  - utter_speaker_diarization
+  - utter_indian_folk_song_classification
+  - utter_slytherin_game_using_genetic_algorithm
+  - utter_named_entity_recognizer_web_application
+  - utter_next_word_prediction
+  - utter_playback_attack_detection_for_speaker_verification_systems
+  - utter_about_jethro
+  - utter_out_of_scope
+  - utter_please_rephrase
