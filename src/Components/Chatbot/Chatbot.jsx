@@ -5,7 +5,7 @@ import ChatText from './Text';
 
 const generationConfig = {
   temperature: 0.8,
-  top_k: 1
+  top_k: 10
 };
 
 const Chatbot = () => {
