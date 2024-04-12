@@ -1,5 +1,5 @@
 import useTextStream from '../../hooks/useTextStream';
-import { API_URL_MODELS_GENERATE } from '../../services/apis';
+import { API_URL_MODELS_GENERATE } from '../../source/apis';
 import { generateUrl } from './helpers';
 
 const StreamStatus = {
