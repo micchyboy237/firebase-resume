@@ -4,8 +4,8 @@ import AutoResizingTextarea from '../AutoResizingTextarea';
 import ChatText from './Text';
 
 const generationConfig = {
-  top_k: 10,
-  temperature: 0.8
+  temperature: 0.8,
+  top_k: 1
 };
 
 const Chatbot = () => {
