@@ -1,6 +1,7 @@
 import useTextStream from '../../hooks/useTextStream';
 import { API_URL_MODELS_GENERATE } from '../../source/apis';
 import { generateUrl } from './helpers';
+import useStreamingApi from '../../hooks/useStreamingApi';
 
 const StreamStatus = {
   pending: 'pending',
@@ -11,7 +12,8 @@ const StreamStatus = {
 };
 
 const useChat = () => {
-  const { run, ...streamState } = useTextStream();
+  const { run, ...streamState } = useStreamingApi(API_URL_MODELS_GENERATE);
+  //   const { run, ...streamState } = useTextStream();
 
   const generate = (prompt, generationConfig) => {
     const body = {
@@ -19,9 +21,7 @@ const useChat = () => {
       ...(generationConfig || {})
     };
 
-    if (streamState.status !== StreamStatus.loading) {
-      run(API_URL_MODELS_GENERATE, body);
-    }
+    run(body);
   };
 
   return [generate, streamState];

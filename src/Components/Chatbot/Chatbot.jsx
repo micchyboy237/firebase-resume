@@ -4,8 +4,9 @@ import AutoResizingTextarea from '../AutoResizingTextarea';
 import ChatText from './Text';
 
 const generationConfig = {
-  temperature: 0.8,
-  top_k: 10
+  //   temperature: 0.8,
+  //   top_k: 10
+  model: 'mistral:latest'
 };
 
 const Chatbot = () => {
@@ -14,8 +15,6 @@ const Chatbot = () => {
   const [chats, setChats] = useState([]);
 
   const [generate, { data: text, error, loading, clear, stop }] = useChat();
-  console.log('CHATS', chats);
-  console.log('Text: ', text);
 
   return (
     <div id="chatbot">

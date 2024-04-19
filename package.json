@@ -17,14 +17,14 @@
     "web-vitals": "^3.1.0"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "PORT=3001 react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy --only hosting",
     "clean": "rm -rf .firebase",
     "server.dev": "ngrok http http://localhost:8000",
-    "server.prod": "ngrok http --domain=corgi-cunning-filly.ngrok-free.app 80"
+    "server.prod": "ngrok http 8080 --domain=brief-leading-polliwog.ngrok-free.app"
   },
   "eslintConfig": {
     "extends": [

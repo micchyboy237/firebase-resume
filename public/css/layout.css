@@ -916,6 +916,8 @@ ul#nav li.current a {
   position: relative;
   height: 350px;
   padding: 14px 12px;
+  /* Add vertical scrollbar */
+  overflow-y: auto;
 }
 #chatbot #chatbox_footer {
   position: relative;
