@@ -61,7 +61,7 @@ const Contact = ({ data }) => {
         <Slide left duration={1000}>
           <ul className="six columns contact-details">
             <li>
-              <a href={`whatsapp://${phone}`}>
+              <a href={`https://wa.me/${phone}`}>
                 <i className="fa fa-phone"></i>
                 {phone}
               </a>
