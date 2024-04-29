@@ -4,6 +4,10 @@ import firebaseAnalytics from '../firebaseAnalytics';
 import BgParticles from './BgParticles';
 
 class Home extends Component {
+  handleAIChat() {
+    firebaseAnalytics.logClick('View AI Chat');
+  }
+
   handleViewResume() {
     firebaseAnalytics.logClick('View Resume');
   }
@@ -37,6 +41,7 @@ class Home extends Component {
                   className="smoothscroll button btn contact-btn"
                   target="_blank"
                   href="https://jetbot.vercel.app"
+                  onClick={this.handleAIChat}
                 >
                   <i className="fa fa-comment"></i>AI Chat
                 </a>
