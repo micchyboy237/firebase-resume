@@ -4,7 +4,7 @@
     "description": "I'm a Full Stack Software Developer based in the Philippines.\nI use React and React Native to develop web and mobile apps.",
     "contactmessage": "Here is where you should write your message to readers to have them get in contact with you.",
     "email": "jethroestrada237@gmail.com",
-    "phone": "+639511148386",
+    "phone": "+639101662460",
     "github": "https://github.com/nordicgiant2/react-nice-resume",
     "project": "https://github.com/nordicgiant2/react-nice-resume",
     "address": {
@@ -17,7 +17,7 @@
       "maplink": "https://www.google.com/maps/place/Las+Pi%C3%B1as,+Metro+Manila/@14.4396056,120.9233471,13z/data=!3m1!4b1!4m6!3m5!1s0x3397ce0835972b6f:0xff33295d281774b!8m2!3d14.444546!4d120.9938736!16zL20vMDE1bGxs"
     },
     "website": "http://www.timbakerdev.com",
-    "resumedownload": "/files/resume.pdf",
+    "resumedownload": "https://jetbot.vercel.app/resume.pdf",
     "social": [
       {
         "name": "facebook",
@@ -49,12 +49,12 @@
   "aboutme": {
     "image": "profilepic.jpeg",
     "bio": "10+ years experience in software development, with a track record of success in delivering client requirements and deploying to App Store and Play Store.",
-    "location": "Metro Manila, Philippines",
+    "location": "Las Piñas City, Metro Manila, Philippines",
     "nationality": "Filipino",
     "birthday": "12-01-1990",
-    "languages": "Filipino, English",
+    "languages": "English, Filipino",
     "school": "De La Salle University",
-    "company": "Macanta"
+    "company": "JulesAI"
   },
   "resume": {
     "education": [
@@ -140,6 +140,24 @@
   "portfolio": {
     "projects": [
       {
+        "title": "JABA AI",
+        "descrition": "(MVP Only) A React and Meteor based chat University project.",
+        "image": "jaba.png",
+        "url": "https://apps.apple.com/us/app/jaba-ai/id6451218161",
+        "apps": [
+          {
+            "type": "ios",
+            "title": "JABA AI",
+            "url": "https://apps.apple.com/us/app/jaba-ai/id6451218161"
+          },
+          {
+            "type": "web",
+            "title": "JABA AI",
+            "url": "https://jaba.live"
+          }
+        ]
+      },
+      {
         "title": "Macanta CRM",
         "descrition": "My Travel Blog for my post-university travels",
         "image": "macanta.png",
@@ -194,12 +212,6 @@
         ]
       },
       {
-        "title": "Digital Cities PH",
-        "descrition": "A React based resume website template",
-        "image": "digitalcitiesph.png",
-        "url": "https://www.digitalcitiesph.com"
-      },
-      {
         "title": "EZ Myoma",
         "descrition": "(MVP Only) A React and Meteor based chat University project.",
         "image": "ezmyoma.png",
@@ -211,6 +223,18 @@
             "url": "https://play.google.com/store/apps/details?id=com.ezmyoma&hl=en&gl=US"
           }
         ]
+      },
+      {
+        "title": "Digital Cities PH",
+        "descrition": "A React based resume website template",
+        "image": "digitalcitiesph.png",
+        "url": "https://www.digitalcitiesph.com"
+      },
+      {
+        "title": "BASE10 Genetics",
+        "descrition": "A React based resume website template",
+        "image": "base10.png",
+        "url": "https://play.google.com/store/apps/details?id=com.base10.user.portal"
       }
     ]
   }

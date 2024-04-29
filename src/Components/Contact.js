@@ -59,9 +59,9 @@ const Contact = ({ data }) => {
 
       <div className="row">
         <Slide left duration={1000}>
-          <ul className="five columns contact-details">
+          <ul className="six columns contact-details">
             <li>
-              <a href={`tel:${phone}`}>
+              <a href={`whatsapp://${phone}`}>
                 <i className="fa fa-phone"></i>
                 {phone}
               </a>
@@ -91,25 +91,18 @@ const Contact = ({ data }) => {
                 {city}, {state} <br /> {country}
               </a>
             </li>
-
-            {/* <aside
-                id="contactLocation"
-                className="four columns footer-widgets"
-              >
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61820.56475237634!2d120.99510719999999!3d14.43953335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce0835972b6f%3A0xff33295d281774b!2sLas%20Pi%C3%B1as%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1679360162033!5m2!1sen!2sph"
-                  width="300"
-                  height="400"
-                  allowFullScreen
-                ></iframe>
-              </aside> */}
           </ul>
         </Slide>
 
         <Slide right duration={1000}>
-          <div className="seven columns">
-            <Chatbot />
-          </div>
+          <aside id="contactLocation" className="six columns footer-widgets">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61820.56475237634!2d120.99510719999999!3d14.43953335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce0835972b6f%3A0xff33295d281774b!2sLas%20Pi%C3%B1as%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1679360162033!5m2!1sen!2sph"
+              width="300"
+              height="400"
+              allowFullScreen
+            ></iframe>
+          </aside>
         </Slide>
       </div>
     </section>

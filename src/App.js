@@ -68,7 +68,7 @@ class App extends Component {
         <ContactWithAnalytics data={this.state.resumeData.main} />
         {/* <Footer data={this.state.resumeData.main} /> */}
         {/* Fixed bottom right  */}
-        <div
+        {/* <div
           style={{
             position: 'fixed',
             bottom: 40,
@@ -77,7 +77,7 @@ class App extends Component {
           }}
         >
           <Chatbot />
-        </div>
+        </div> */}
       </div>
     );
   }

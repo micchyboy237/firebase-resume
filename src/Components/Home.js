@@ -35,7 +35,8 @@ class Home extends Component {
               <ul className="social">
                 <a
                   className="smoothscroll button btn contact-btn"
-                  href="#contact"
+                  target="_blank"
+                  href="https://jetbot.vercel.app"
                 >
                   <i className="fa fa-comment"></i>AI Chat
                 </a>

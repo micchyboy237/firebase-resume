@@ -6,7 +6,7 @@ import ChatText from './Text';
 const generationConfig = {
   //   temperature: 0.8,
   //   top_k: 10
-  model: 'mistral:latest'
+  model: 'phi:latest'
 };
 
 const Chatbot = () => {

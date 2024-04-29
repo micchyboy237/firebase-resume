@@ -39,11 +39,11 @@ class Header extends Component {
               </a>
             </li>
 
-            <li>
+            {/* <li>
               <a className="smoothscroll" href="#contact">
                 AI Chat
               </a>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </header>
