@@ -38,9 +38,9 @@ class Home extends Component {
             <Fade bottom duration={2000}>
               <ul className="social">
                 <a
-                  className="smoothscroll button btn contact-btn"
-                  target="_blank"
                   href="https://jetbot.vercel.app"
+                  target="_blank"
+                  className="button btn contact-btn"
                   onClick={this.handleAIChat}
                 >
                   <i className="fa fa-comment"></i>AI Chat

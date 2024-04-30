@@ -800,9 +800,9 @@ ul#nav li.current a {
 #contact .section-head {
   margin-bottom: 42px;
 }
-#contactForm,
 #contactLocation {
-  height: 500px;
+  display: flex;
+  justify-content: center;
 }
 
 #contact a,

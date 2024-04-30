@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Zoom from 'react-reveal/Zoom';
 
-let Modal = ({ children, contentStyle, onClose, ...props }) => {
+let Modal = ({ children, contentStyle, onClose, duration = 200, ...props }) => {
   function handleStopMouseEvent(e) {
     e.stopPropagation();
   }
 
   return (
     <div className="modal" onClick={onClose} {...props}>
-      <Zoom duration={200}>
+      <Zoom duration={duration}>
         <div
           className="modal-content"
           onClick={handleStopMouseEvent}

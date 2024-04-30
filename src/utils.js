@@ -39,3 +39,9 @@ export const scrollToHash = () => {
     });
   }
 };
+
+export const isVideoFile = (url) => {
+  const videoExtensions = ['.mp4', '.avi', '.mov', '.wmv', '.mkv', '.webm'];
+  const extension = url.split('.').pop().toLowerCase();
+  return videoExtensions.includes(`.${extension}`);
+};
