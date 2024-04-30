@@ -41,7 +41,7 @@ class App extends Component {
         onSuccess(data);
       }.bind(this),
       error: function (xhr, status, err) {
-        console.log(err);
+        console.error(err);
         alert(err);
       }
     });

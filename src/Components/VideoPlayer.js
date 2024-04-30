@@ -3,11 +3,6 @@ import React, { useEffect, useRef } from 'react';
 const VideoPlayer = ({ src, autoPlay, fullscreen, ...props }) => {
   const videoRef = useRef(null);
 
-  console.log('handleFullScreenChange', {
-    check: document.fullscreenElement === videoRef.current,
-    videoElement: videoRef.current,
-    fullscreenElement: document.fullscreenElement
-  });
   useEffect(() => {
     const videoElement = videoRef.current;
 
