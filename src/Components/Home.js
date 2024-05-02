@@ -37,14 +37,14 @@ class Home extends Component {
 
             <Fade bottom duration={2000}>
               <ul className="social">
-                <a
+                {/* <a
                   href="https://jetbot.vercel.app"
                   target="_blank"
                   className="button btn contact-btn"
                   onClick={this.handleAIChat}
                 >
                   <i className="fa fa-comment"></i>AI Chat
-                </a>
+                </a> */}
 
                 <a
                   href={resumeDownload}
