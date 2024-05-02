@@ -1,7 +1,6 @@
 import ReactGA from 'react-ga4';
 
 const isProduction = process.env.NODE_ENV === 'production';
-console.info('isProduction', isProduction);
 
 const initialize = () => {
   if (isProduction) {
