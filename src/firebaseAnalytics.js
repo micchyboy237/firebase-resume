@@ -1,7 +1,12 @@
 import ReactGA from 'react-ga4';
 
+const isProduction = process.env.NODE_ENV === 'production';
+console.info('isProduction', isProduction);
+
 const initialize = () => {
-  ReactGA.initialize('G-TH3848R9V0');
+  if (isProduction) {
+    ReactGA.initialize('G-TH3848R9V0');
+  }
 };
 
 const logEvent = ({
@@ -12,25 +17,29 @@ const logEvent = ({
   nonInteraction,
   transport
 }) => {
-  // Send a custom event
-  ReactGA.event({
-    category,
-    action,
-    label, // optional
-    value, // optional, must be a number
-    nonInteraction, // optional, true/false
-    transport // optional, beacon/xhr/image
-  });
+  if (isProduction) {
+    // Send a custom event
+    ReactGA.event({
+      category,
+      action,
+      label, // optional
+      value, // optional, must be a number
+      nonInteraction, // optional, true/false
+      transport // optional, beacon/xhr/image
+    });
+  }
 };
 
 const logSend = ({ hitType, page = '/', title, ...args }) => {
-  // Send pageview with a custom path
-  ReactGA.send({
-    hitType, // 'pageview', 'screenview', 'event', 'transaction', 'item', 'social', 'exception', 'timing'
-    page,
-    title,
-    ...args
-  });
+  if (isProduction) {
+    // Send pageview with a custom path
+    ReactGA.send({
+      hitType, // 'pageview', 'screenview', 'event', 'transaction', 'item', 'social', 'exception', 'timing'
+      page,
+      title,
+      ...args
+    });
+  }
 };
 
 const logVisit = (path = '/', title = 'Website Visit') => {
