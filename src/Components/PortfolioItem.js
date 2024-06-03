@@ -5,7 +5,7 @@ import Delay from './Delay';
 import Modal from './Modal';
 import VideoPlayer from './VideoPlayer';
 
-const PortfolioItem = ({ title, image, url, ...props }) => {
+const PortfolioItem = ({ title, image, url, imageType, ...props }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = (e) => {
@@ -27,7 +27,14 @@ const PortfolioItem = ({ title, image, url, ...props }) => {
     <div {...props}>
       <a className="item-wrap" href={url} target="_blank" onClick={handleClick}>
         <div className="img-wrapper">
-          <div className="img-container">
+          <div
+            className="img-container"
+            {...(imageType === 'text' && {
+              style: {
+                padding: 20
+              }
+            })}
+          >
             <img alt={title} src={projectImage} />
           </div>
         </div>

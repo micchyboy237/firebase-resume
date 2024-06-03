@@ -156,10 +156,39 @@
         ]
       },
       {
+        "title": "Graduapp",
+        "descrition": "(MVP Only) A React and Meteor based chat University project.",
+        "image": "graduapp.png",
+        "url": "https://play.google.com/store/apps/details?id=com.eightweekapp.graduapp&hl=en&gl=US",
+        "apps": [
+          {
+            "type": "android",
+            "title": "Graduapp",
+            "url": "https://play.google.com/store/apps/details?id=com.eightweekapp.graduapp&hl=en&gl=US"
+          },
+          {
+            "type": "ios",
+            "title": "Graduapp",
+            "url": "https://apps.apple.com/us/app/graduapp/id1576401944"
+          },
+          {
+            "type": "web",
+            "title": "Graduapp Admin",
+            "url": "http://3.134.223.19"
+          }
+        ]
+      },
+      {
+        "title": "Digital Cities PH",
+        "descrition": "A React based resume website template",
+        "image": "digitalcitiesph.png",
+        "url": "https://www.digitalcitiesph.com"
+      },
+      {
         "title": "Macanta CRM",
         "descrition": "My Travel Blog for my post-university travels",
         "image": "macanta.png",
-        "url": "https://crm.salesferry.com",
+        "url": "https://appsumo.com/products/macanta",
         "apps": [
           {
             "type": "ios",
@@ -192,28 +221,10 @@
         ]
       },
       {
-        "title": "Graduapp",
-        "descrition": "(MVP Only) A React and Meteor based chat University project.",
-        "image": "graduapp.png",
-        "url": "https://apps.apple.com/us/app/graduapp/id1576401944",
-        "apps": [
-          {
-            "type": "ios",
-            "title": "Graduapp",
-            "url": "https://apps.apple.com/us/app/graduapp/id1576401944"
-          },
-          {
-            "type": "web",
-            "title": "Graduapp Admin",
-            "url": "http://3.134.223.19"
-          }
-        ]
-      },
-      {
         "title": "EZ Myoma",
         "descrition": "(MVP Only) A React and Meteor based chat University project.",
         "image": "ezmyoma.png",
-        "url": "https://play.google.com/store/apps/details?id=com.ezmyoma&hl=en&gl=US",
+        "url": "https://ez-myoma.en.aptoide.com/app",
         "apps": [
           {
             "type": "android",
@@ -223,22 +234,23 @@
         ]
       },
       {
-        "title": "Digital Cities PH",
+        "title": "Zakly",
         "descrition": "A React based resume website template",
-        "image": "digitalcitiesph.png",
-        "url": "https://www.digitalcitiesph.com"
+        "image": "zakly.png",
+        "url": "/files/zakly.mp4"
       },
       {
         "title": "BASE10 Genetics",
         "descrition": "A React based resume website template",
         "image": "base10.png",
-        "url": "https://play.google.com/store/apps/details?id=com.base10.user.portal"
+        "url": "https://apksos.com/download-app/com.base10.user.portal"
       },
       {
-        "title": "Zakly",
+        "title": "TAS Cedaro",
         "descrition": "A React based resume website template",
-        "image": "zakly.png",
-        "url": "/files/zakly.mp4"
+        "image": "tascedaro.png",
+        "imageType": "text",
+        "url": "https://tasgroup.com.au/services/software-solutions/cedaro"
       }
     ]
   }

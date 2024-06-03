@@ -12,9 +12,7 @@ class Portfolio extends Component {
         <PortfolioItem
           key={id++}
           className="columns portfolio-item"
-          title={project.title}
-          image={project.image}
-          url={project.url}
+          {...project}
         />
       );
     });
