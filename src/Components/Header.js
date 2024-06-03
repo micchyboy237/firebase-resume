@@ -10,10 +10,20 @@ class Header extends Component {
     return (
       <header>
         <nav id="nav-wrap">
-          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
+          <a
+            className="mobile-btn"
+            href="#nav-wrap"
+            title="Show navigation"
+            onClick={this.handleClick('mobile_show_nav')}
+          >
             Show navigation
           </a>
-          <a className="mobile-btn" href="#home" title="Hide navigation">
+          <a
+            className="mobile-btn"
+            href="#home"
+            title="Hide navigation"
+            onClick={this.handleClick('mobile_hide_nav')}
+          >
             Hide navigation
           </a>
 
