@@ -52,7 +52,7 @@ class Home extends Component {
                   className="button btn download-btn"
                   onClick={this.handleViewResume}
                 >
-                  <i className="fa fa-download"></i>Resume
+                  <i className="fa fa-download"></i>View Resume
                 </a>
               </ul>
             </Fade>
