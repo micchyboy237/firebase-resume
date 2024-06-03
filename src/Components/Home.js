@@ -9,7 +9,7 @@ class Home extends Component {
   }
 
   handleResume() {
-    firebaseAnalytics.logClick('home_download_Resume');
+    firebaseAnalytics.logClick('home_download_resume');
   }
 
   render() {
