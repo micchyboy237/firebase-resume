@@ -1,4 +1,5 @@
 import ReactGA from 'react-ga4';
+import { snakeCase } from './utils';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -16,7 +17,7 @@ const logEvent = ({
   nonInteraction,
   transport
 }) => {
-  const action = `${category}_${actionArg}`;
+  const action = snakeCase(`${category}_${actionArg}`);
 
   if (isProduction) {
     // Send a custom event

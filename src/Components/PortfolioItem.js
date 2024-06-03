@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import firebaseAnalytics from '../firebaseAnalytics';
-import { isVideoFile, snakeCase } from '../utils';
+import { isVideoFile } from '../utils';
 import Delay from './Delay';
 import Modal from './Modal';
 import VideoPlayer from './VideoPlayer';
@@ -14,8 +14,7 @@ const PortfolioItem = ({ title, image, url, ...props }) => {
       setShowModal(true);
     }
 
-    const analytics_title = snakeCase(title);
-    firebaseAnalytics.logClick(`porfolio_${analytics_title}`);
+    firebaseAnalytics.logClick(`porfolio_${title}`);
   };
 
   const handleClose = () => {
