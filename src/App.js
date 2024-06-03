@@ -11,11 +11,11 @@ import firebaseAnalytics from './firebaseAnalytics';
 import withAnalytics from './hoc/withAnalytics';
 import { scrollToHash } from './utils';
 
-const HomeWithAnalytics = withAnalytics(Home, 'Home Section');
-const AboutWithAnalytics = withAnalytics(About, 'About Section');
-const SkillsWithAnalytics = withAnalytics(Skills, 'Skills Section');
-const PortfolioWithAnalytics = withAnalytics(Portfolio, 'Portfolio Section');
-const ContactWithAnalytics = withAnalytics(Contact, 'Contact Section');
+const HomeWithAnalytics = withAnalytics(Home, 'home_section');
+const AboutWithAnalytics = withAnalytics(About, 'about_section');
+const SkillsWithAnalytics = withAnalytics(Skills, 'skills_section');
+const PortfolioWithAnalytics = withAnalytics(Portfolio, 'portfolio_section');
+const ContactWithAnalytics = withAnalytics(Contact, 'contact_section');
 
 class App extends Component {
   constructor(props) {

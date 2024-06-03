@@ -40,20 +40,8 @@ class About extends Component {
                 </li>
 
                 <li>
-                  <span>Email:</span>
-                  <a href={`mailto:${email}`}>{email}</a>
-                </li>
-
-                <li>
                   <span>Languages:</span>
                   {languages}
-                </li>
-
-                <li>
-                  <span>Location:</span>
-                  <a href={maplink} target="_blank">
-                    {state}, {country}
-                  </a>
                 </li>
 
                 <li>

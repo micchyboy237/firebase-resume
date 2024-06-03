@@ -5,11 +5,11 @@ import BgParticles from './BgParticles';
 
 class Home extends Component {
   handleAIChat() {
-    firebaseAnalytics.logClick('Open AI Chat');
+    firebaseAnalytics.logClick('home_open_ai_chat');
   }
 
   handleResume() {
-    firebaseAnalytics.logClick('Download Resume');
+    firebaseAnalytics.logClick('home_download_Resume');
   }
 
   render() {

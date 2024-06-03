@@ -65,7 +65,7 @@ const Contact = ({ data }) => {
               <a
                 href={phoneLink}
                 target="_blank"
-                onClick={handleClick(`Contact Whatsapp - ${phoneLink}`)}
+                onClick={handleClick(`contact_whatsapp`)}
               >
                 <i className="fa fa-phone"></i>
                 WhatsApp: {phone}
@@ -73,10 +73,7 @@ const Contact = ({ data }) => {
             </li>
 
             <li>
-              <a
-                href={emailLink}
-                onClick={handleClick(`Contact Email - ${emailLink}`)}
-              >
+              <a href={emailLink} onClick={handleClick(`contact_email`)}>
                 <i
                   className="fa fa-envelope"
                   style={{
@@ -90,7 +87,7 @@ const Contact = ({ data }) => {
             <li className="address">
               <a
                 href={maplink}
-                onClick={handleClick(`Contact Location - Open map on new tab`)}
+                onClick={handleClick(`contact_location`)}
                 target="_blank"
                 style={{
                   display: 'flex'

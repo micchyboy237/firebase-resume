@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import firebaseAnalytics from '../firebaseAnalytics';
-import { isVideoFile } from '../utils';
+import { isVideoFile, snakeCase } from '../utils';
 import Delay from './Delay';
 import Modal from './Modal';
 import VideoPlayer from './VideoPlayer';
@@ -10,16 +10,12 @@ const PortfolioItem = ({ title, image, url, ...props }) => {
 
   const handleClick = (e) => {
     if (isVideoFile(url)) {
-      firebaseAnalytics.logClick(
-        `Porfolio - ${title} | Open video link (${url}) on modal`
-      );
       e.preventDefault();
       setShowModal(true);
-    } else {
-      firebaseAnalytics.logClick(
-        `Porfolio - ${title} | Open prod link (${url}) on new tab`
-      );
     }
+
+    const analytics_title = snakeCase(title);
+    firebaseAnalytics.logClick(`porfolio_${analytics_title}`);
   };
 
   const handleClose = () => {

@@ -3,7 +3,7 @@ import firebaseAnalytics from '../firebaseAnalytics';
 
 class Header extends Component {
   handleClick = (title) => () => {
-    firebaseAnalytics.logClick(`Menu - ${title}`);
+    firebaseAnalytics.logClick(`header_${title}`);
   };
 
   render() {
@@ -22,7 +22,7 @@ class Header extends Component {
               <a
                 className="smoothscroll"
                 href="#home"
-                onClick={this.handleClick('Home')}
+                onClick={this.handleClick('home')}
               >
                 Home
               </a>
@@ -32,7 +32,7 @@ class Header extends Component {
               <a
                 className="smoothscroll"
                 href="#about"
-                onClick={this.handleClick('About')}
+                onClick={this.handleClick('about')}
               >
                 About
               </a>
@@ -42,7 +42,7 @@ class Header extends Component {
               <a
                 className="smoothscroll"
                 href="#skills"
-                onClick={this.handleClick('Skills')}
+                onClick={this.handleClick('skills')}
               >
                 Skills
               </a>
@@ -52,7 +52,7 @@ class Header extends Component {
               <a
                 className="smoothscroll"
                 href="#portfolio"
-                onClick={this.handleClick('Portfolio')}
+                onClick={this.handleClick('portfolio')}
               >
                 Portfolio
               </a>
@@ -62,7 +62,7 @@ class Header extends Component {
               <a
                 className="smoothscroll"
                 href="#contact"
-                onClick={this.handleClick('Contact')}
+                onClick={this.handleClick('contact')}
               >
                 Contact
               </a>

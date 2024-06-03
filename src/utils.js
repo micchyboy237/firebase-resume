@@ -45,3 +45,17 @@ export const isVideoFile = (url) => {
   const extension = url.split('.').pop().toLowerCase();
   return videoExtensions.includes(`.${extension}`);
 };
+
+/**
+ * Converts string to snake case.
+ * @param {string} str - The string to convert.
+ * @returns {string} The snake cased string.
+ */
+export const snakeCase = (str) => {
+  return str
+    .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
+    .trim() // Trim leading and trailing whitespace
+    .replace(/([a-z])([A-Z])/g, '$1_$2') // Insert underscore between camelCase words
+    .replace(/[\s\-]+/g, '_') // Replace spaces and hyphens with underscores
+    .toLowerCase(); // Convert to lowercase
+};

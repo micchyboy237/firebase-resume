@@ -16,7 +16,7 @@ const logEvent = ({
   nonInteraction,
   transport
 }) => {
-  const action = `${category}: ${actionArg}`;
+  const action = `${category}_${actionArg}`;
 
   if (isProduction) {
     // Send a custom event
@@ -57,21 +57,21 @@ const logVisit = (path = '/', title = 'Website Visit') => {
 
 const logView = (title) => {
   logEvent({
-    category: 'View',
+    category: 'view',
     action: title
   });
 };
 
 const logClick = (action) => {
   logEvent({
-    category: 'Click',
+    category: 'click',
     action
   });
 };
 
 const logVitals = ({ id, name, value }) => {
   logEvent({
-    category: 'Web Vitals',
+    category: 'web_vitals',
     action: name,
     label: id, // id unique to current page load
     value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers,
