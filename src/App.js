@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
 import $ from 'jquery';
+import React, { Component } from 'react';
 import './App.css';
-import Header from './Components/Header';
 import About from './Components/About';
-import Resume from './Components/Resume';
-import Portfolio from './Components/Portfolio';
 import Contact from './Components/Contact';
-import Footer from './Components/Footer';
-import { scrollToHash } from './utils';
+import Header from './Components/Header';
 import Home from './Components/Home';
+import Portfolio from './Components/Portfolio';
+import Skills from './Components/Skills';
 import firebaseAnalytics from './firebaseAnalytics';
 import withAnalytics from './hoc/withAnalytics';
-import Chatbot from './Components/Chatbot';
+import { scrollToHash } from './utils';
 
-const AboutWithAnalytics = withAnalytics(About);
-const ResumeWithAnalytics = withAnalytics(Resume);
-const PortfolioWithAnalytics = withAnalytics(Portfolio);
-const ContactWithAnalytics = withAnalytics(Contact);
+const HomeWithAnalytics = withAnalytics(Home, 'Home Section');
+const AboutWithAnalytics = withAnalytics(About, 'About Section');
+const SkillsWithAnalytics = withAnalytics(Skills, 'Skills Section');
+const PortfolioWithAnalytics = withAnalytics(Portfolio, 'Portfolio Section');
+const ContactWithAnalytics = withAnalytics(Contact, 'Contact Section');
 
 class App extends Component {
   constructor(props) {
@@ -57,13 +56,13 @@ class App extends Component {
     return !hasLoaded ? null : (
       <div className="App">
         <Header data={this.state.resumeData.main} />
-        <Home data={this.state.resumeData.main} />
+        <HomeWithAnalytics data={this.state.resumeData.main} />
         <AboutWithAnalytics
           data={this.state.resumeData.aboutme}
           email={this.state.resumeData.main?.email}
           address={this.state.resumeData.main?.address}
         />
-        <ResumeWithAnalytics data={this.state.resumeData.resume} />
+        <SkillsWithAnalytics data={this.state.resumeData.skills} />
         <PortfolioWithAnalytics data={this.state.resumeData.portfolio} />
         <ContactWithAnalytics data={this.state.resumeData.main} />
         {/* <Footer data={this.state.resumeData.main} /> */}

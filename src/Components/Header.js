@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import ParticlesBg from 'particles-bg';
-import Fade from 'react-reveal';
+import firebaseAnalytics from '../firebaseAnalytics';
 
 class Header extends Component {
+  handleClick = (title) => () => {
+    firebaseAnalytics.logClick(`Menu - ${title}`);
+  };
+
   render() {
     return (
       <header>
@@ -16,31 +19,51 @@ class Header extends Component {
 
           <ul id="nav" className="nav">
             <li className="current">
-              <a className="smoothscroll" href="#home">
+              <a
+                className="smoothscroll"
+                href="#home"
+                onClick={this.handleClick('Home')}
+              >
                 Home
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#about">
+              <a
+                className="smoothscroll"
+                href="#about"
+                onClick={this.handleClick('About')}
+              >
                 About
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#skills">
+              <a
+                className="smoothscroll"
+                href="#skills"
+                onClick={this.handleClick('Skills')}
+              >
                 Skills
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#portfolio">
+              <a
+                className="smoothscroll"
+                href="#portfolio"
+                onClick={this.handleClick('Portfolio')}
+              >
                 Portfolio
               </a>
             </li>
 
             <li>
-              <a className="smoothscroll" href="#contact">
+              <a
+                className="smoothscroll"
+                href="#contact"
+                onClick={this.handleClick('Contact')}
+              >
                 Contact
               </a>
             </li>

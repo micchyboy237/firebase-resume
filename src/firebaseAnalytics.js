@@ -10,12 +10,14 @@ const initialize = () => {
 
 const logEvent = ({
   category,
-  action,
+  action: actionArg,
   label,
   value,
   nonInteraction,
   transport
 }) => {
+  const action = `${category}: ${actionArg}`;
+
   if (isProduction) {
     // Send a custom event
     ReactGA.event({
@@ -26,6 +28,8 @@ const logEvent = ({
       nonInteraction, // optional, true/false
       transport // optional, beacon/xhr/image
     });
+  } else {
+    console.debug(`logEvent: "${action}"`);
   }
 };
 
@@ -38,6 +42,8 @@ const logSend = ({ hitType, page = '/', title, ...args }) => {
       title,
       ...args
     });
+  } else {
+    console.debug(`logSend | hitType: "${hitType}", page: "${page}"`);
   }
 };
 
@@ -49,9 +55,9 @@ const logVisit = (path = '/', title = 'Website Visit') => {
   });
 };
 
-const logView = (path = '/', title) => {
+const logView = (title) => {
   logEvent({
-    category: 'View Info',
+    category: 'View',
     action: title
   });
 };

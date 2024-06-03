@@ -1,26 +1,21 @@
 import React, { useEffect, useRef } from 'react';
+import firebaseAnalytics from '../firebaseAnalytics';
 import useDOMLoaded from '../hooks/useDOMLoaded';
 import useIsInViewport from '../hooks/useIsInViewport';
-import firebaseAnalytics from '../firebaseAnalytics';
 
-const withAnalytics = (WrappedComponent) => {
+const withAnalytics = (WrappedComponent, eventName) => {
   const EnhancedComponent = (props) => {
     const containerRef = useRef(null);
-    const hasSentAnalyticsRef = useRef(false);
 
     const { loaded, element } = useDOMLoaded('*', containerRef.current);
     const isInViewport = useIsInViewport(element);
 
     useEffect(() => {
       setTimeout(() => {
-        if (!hasSentAnalyticsRef.current && loaded && isInViewport) {
-          hasSentAnalyticsRef.current = true;
-
-          const path = window.location.href.substring(
-            window.location.origin.length
-          );
-
-          firebaseAnalytics.logView(path, 'View Section');
+        if (loaded && isInViewport) {
+          if (eventName) {
+            firebaseAnalytics.logView(eventName);
+          }
         }
       }, 400);
     }, [isInViewport]);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Slide from 'react-reveal';
 
 class Skills extends Component {
   renderSkills(skills) {
@@ -41,17 +42,21 @@ class Skills extends Component {
     });
 
     return (
-      <div className="row skill">
-        <div className="three columns header-col">
-          <h1>
-            <span>Skills</span>
-          </h1>
-        </div>
+      <section id="skills">
+        <Slide left duration={1300}>
+          <div className="row skill">
+            <div className="three columns header-col">
+              <h1>
+                <span>Skills</span>
+              </h1>
+            </div>
 
-        <div className="nine columns main-col">
-          <div className="categories">{skillCategories}</div>
-        </div>
-      </div>
+            <div className="nine columns main-col">
+              <div className="categories">{skillCategories}</div>
+            </div>
+          </div>
+        </Slide>
+      </section>
     );
   }
 }

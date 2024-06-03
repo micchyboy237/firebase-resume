@@ -5,11 +5,11 @@ import BgParticles from './BgParticles';
 
 class Home extends Component {
   handleAIChat() {
-    firebaseAnalytics.logClick('View AI Chat');
+    firebaseAnalytics.logClick('Open AI Chat');
   }
 
-  handleViewResume() {
-    firebaseAnalytics.logClick('View Resume');
+  handleResume() {
+    firebaseAnalytics.logClick('Download Resume');
   }
 
   render() {
@@ -49,7 +49,7 @@ class Home extends Component {
                 <a
                   href={resumeDownload}
                   className="button btn download-btn"
-                  onClick={this.handleViewResume}
+                  onClick={this.handleResume}
                   download="Resume Latest - Jethro Estrada.pdf"
                 >
                   <i className="fa fa-download"></i>Download Resume

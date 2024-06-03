@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slide from 'react-reveal';
 import Education from './Education';
-import Skills from './Skills';
+import Skills from '../Skills';
 import Work from './Work';
 
 class Resume extends Component {

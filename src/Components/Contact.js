@@ -1,8 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Fade, Slide } from 'react-reveal';
 import firebaseAnalytics from '../firebaseAnalytics';
 import useLazyFetch from '../hooks/useLazyFetch';
-import Chatbot from './Chatbot';
 
 const Contact = ({ data }) => {
   const [inputs, setInputs] = useState({});
@@ -34,8 +33,8 @@ const Contact = ({ data }) => {
     sendMessage();
   };
 
-  const handleContactEmail = () => {
-    firebaseAnalytics.logClick('Contact Email');
+  const handleClick = (title) => () => {
+    firebaseAnalytics.logClick(title);
   };
 
   const city = data?.address.city;
@@ -44,6 +43,8 @@ const Contact = ({ data }) => {
   const maplink = data?.address.maplink;
   const phone = data?.phone;
   const email = data?.email;
+  const phoneLink = `https://wa.me/${phone}`;
+  const emailLink = `mailto:${email}`;
 
   return (
     <section id="contact">
@@ -61,14 +62,21 @@ const Contact = ({ data }) => {
         <Slide left duration={1000}>
           <ul className="six columns contact-details">
             <li>
-              <a href={`https://wa.me/${phone}`}>
+              <a
+                href={phoneLink}
+                target="_blank"
+                onClick={handleClick(`Contact Whatsapp - ${phoneLink}`)}
+              >
                 <i className="fa fa-phone"></i>
-                {phone}
+                WhatsApp: {phone}
               </a>
             </li>
 
             <li>
-              <a href={`mailto:${email}`}>
+              <a
+                href={emailLink}
+                onClick={handleClick(`Contact Email - ${emailLink}`)}
+              >
                 <i
                   className="fa fa-envelope"
                   style={{
@@ -82,6 +90,7 @@ const Contact = ({ data }) => {
             <li className="address">
               <a
                 href={maplink}
+                onClick={handleClick(`Contact Location - Open map on new tab`)}
                 target="_blank"
                 style={{
                   display: 'flex'
