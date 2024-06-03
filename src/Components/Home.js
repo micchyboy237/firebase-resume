@@ -4,13 +4,9 @@ import firebaseAnalytics from '../firebaseAnalytics';
 import BgParticles from './BgParticles';
 
 class Home extends Component {
-  handleAIChat() {
-    firebaseAnalytics.logClick('home_open_ai_chat');
-  }
-
-  handleResume() {
-    firebaseAnalytics.logClick('home_download_resume');
-  }
+  handleClick = (title) => () => {
+    firebaseAnalytics.logClick(`home_${title}`);
+  };
 
   render() {
     const data = this.props.data;
@@ -41,7 +37,7 @@ class Home extends Component {
                   href="https://jetbot.vercel.app"
                   target="_blank"
                   className="button btn contact-btn"
-                  onClick={this.handleAIChat}
+                  onClick={this.handleClick('open_ai_chat')}
                 >
                   <i className="fa fa-comment"></i>AI Chat
                 </a> */}
@@ -49,7 +45,7 @@ class Home extends Component {
                 <a
                   href={resumeDownload}
                   className="button btn download-btn"
-                  onClick={this.handleResume}
+                  onClick={this.handleClick('download_resume')}
                   download="Resume Latest - Jethro Estrada.pdf"
                 >
                   <i className="fa fa-download"></i>Download Resume
@@ -60,7 +56,11 @@ class Home extends Component {
         </div>
 
         <p className="scrolldown">
-          <a className="smoothscroll" href="#about">
+          <a
+            className="smoothscroll"
+            href="#about"
+            onClick={this.handleClick('bottom_icon_smooth_scroll')}
+          >
             <i className="icon-down-circle"></i>
           </a>
         </p>
