@@ -48,11 +48,11 @@ class Home extends Component {
 
                 <a
                   href={resumeDownload}
-                  target="_blank"
                   className="button btn download-btn"
                   onClick={this.handleViewResume}
+                  download="Resume Latest - Jethro Estrada.pdf"
                 >
-                  <i className="fa fa-download"></i>View Resume
+                  <i className="fa fa-download"></i>Download Resume
                 </a>
               </ul>
             </Fade>
