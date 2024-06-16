@@ -1127,7 +1127,8 @@ footer .social-links li:first-child {
   margin-right: 15px;
 }
 .contact-btn {
-  background-color: #09b2fa !important;
+  color: white !important;
+  background-color: #181818 !important;
 }
 .download-btn {
   color: white !important;

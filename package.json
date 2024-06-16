@@ -21,7 +21,7 @@
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && firebase deploy --only hosting",
+    "deploy": "npm run build && firebase deploy",
     "clean": "rm -rf .firebase",
     "server.dev": "ngrok http http://localhost:8000",
     "server.prod": "ngrok http 8080 --domain=brief-leading-polliwog.ngrok-free.app"

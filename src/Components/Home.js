@@ -33,15 +33,6 @@ class Home extends Component {
 
             <Fade bottom duration={2000}>
               <ul className="social">
-                {/* <a
-                  href="https://jetbot.vercel.app"
-                  target="_blank"
-                  className="button btn contact-btn"
-                  onClick={this.handleClick('open_ai_chat')}
-                >
-                  <i className="fa fa-comment"></i>AI Chat
-                </a> */}
-
                 <a
                   href={resumeDownload}
                   className="button btn download-btn"
@@ -49,6 +40,15 @@ class Home extends Component {
                   download="Resume Latest - Jethro Estrada.pdf"
                 >
                   <i className="fa fa-download"></i>Download Resume
+                </a>
+
+                <a
+                  href="https://jetbot.vercel.app/chat"
+                  target="_blank"
+                  className="button btn contact-btn"
+                  onClick={this.handleClick('chat_with_jetbot')}
+                >
+                  <i className="fa fa-comment"></i>Chat With JetBot
                 </a>
               </ul>
             </Fade>
