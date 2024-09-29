@@ -42,14 +42,14 @@ class Home extends Component {
                   <i className="fa fa-download"></i>Download Resume
                 </a>
 
-                <a
+                {/* <a
                   href="https://jetbot.vercel.app/chat"
                   target="_blank"
                   className="button btn contact-btn"
                   onClick={this.handleClick('chat_with_jetbot')}
                 >
                   <i className="fa fa-comment"></i>Chat With JetBot
-                </a>
+                </a> */}
               </ul>
             </Fade>
           </div>
